@@ -1,0 +1,17 @@
+{
+  "name": "great-visa-network",
+  "version": "1.0.0",
+  "description": "Professional website for GREAT Visa Network - Visa consultancy and recruitment agency",
+  "engines": {
+    "node": "20.x"
+  },
+  "scripts": {
+    "build": "cd client && npm install && npm run build"
+  },
+  "keywords": [
+    "visa consultancy",
+    "immigration services"
+  ],
+  "author": "Octaleads Pvt Ltd",
+  "license": "MIT"
+}
