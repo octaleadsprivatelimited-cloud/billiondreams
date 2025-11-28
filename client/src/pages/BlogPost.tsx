@@ -42,7 +42,6 @@ const BlogPost: React.FC = () => {
             src="/hero-background.avif"
             alt="Background"
             className="w-full h-full object-cover"
-            style={{ imageRendering: 'high-quality' }}
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/90 via-purple-900/85 to-pink-900/90"></div>

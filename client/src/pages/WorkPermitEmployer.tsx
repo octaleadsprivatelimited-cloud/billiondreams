@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle, Mail, ClipboardCheck, Building2, Users, FileCheck, ShieldCheck, Briefcase } from 'lucide-react';
+import { CheckCircle, ClipboardCheck, Building2, Users, FileCheck, ShieldCheck } from 'lucide-react';
 
 const WorkPermitEmployer = () => {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
@@ -38,7 +38,6 @@ const WorkPermitEmployer = () => {
             src="/hero-background.avif"
             alt="Background"
             className="w-full h-full object-cover"
-            style={{ imageRendering: 'high-quality' }}
           />
         </div>
         <div className="absolute inset-0 bg-black/70"></div>

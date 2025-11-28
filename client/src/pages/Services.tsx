@@ -120,7 +120,6 @@ const Services: React.FC = () => {
             src="/hero-background.avif"
             alt="Services Background"
             className="w-full h-full object-cover"
-            style={{ imageRendering: 'high-quality' }}
           />
         </div>
         {/* Black overlay */}

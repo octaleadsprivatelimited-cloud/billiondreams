@@ -35,7 +35,7 @@ const Hero: React.FC = () => {
       url: '/home/hero-3.avif',
       mobilePosition: 'center center'
     }
-  ] as const;
+  ];
 
   // Preload images
   useEffect(() => {
@@ -72,7 +72,7 @@ const Hero: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (sliderImages.length === 0 || !imagesLoaded) return;
+    if (!imagesLoaded) return;
     
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % sliderImages.length);

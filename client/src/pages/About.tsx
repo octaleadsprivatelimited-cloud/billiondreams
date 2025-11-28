@@ -79,27 +79,6 @@ const About: React.FC = () => {
     }
   ];
 
-  const features = [
-    {
-      icon: Shield,
-      title: 'Certified Experts',
-      description: 'Our team consists of certified education consultants with years of experience.',
-      color: 'text-green-500'
-    },
-    {
-      icon: Sparkles,
-      title: 'Personalized Service',
-      description: 'Every student receives personalized attention and tailored education solutions.',
-      color: 'text-purple-500'
-    },
-    {
-      icon: Award,
-      title: 'Proven Track Record',
-      description: 'Our 98% success rate speaks to our commitment to excellence.',
-      color: 'text-amber-500'
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50">
             {/* Hero Section */}
@@ -110,7 +89,6 @@ const About: React.FC = () => {
             src="/hero-background.avif"
             alt="About Background"
             className="w-full h-full object-cover"
-            style={{ imageRendering: 'high-quality' }}
           />
         </div>
         {/* Black overlay */}

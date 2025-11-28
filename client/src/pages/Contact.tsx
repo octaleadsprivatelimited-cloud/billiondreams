@@ -109,7 +109,6 @@ const Contact: React.FC = () => {
             src="/hero-background.avif"
             alt="Contact Background"
             className="w-full h-full object-cover"
-            style={{ imageRendering: 'high-quality' }}
           />
         </div>
         {/* Black overlay */}

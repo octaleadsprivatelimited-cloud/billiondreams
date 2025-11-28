@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle, Mail, ClipboardCheck, CheckCircle2, Stethoscope, Fingerprint, FileText, Award } from 'lucide-react';
+import { CheckCircle, ClipboardCheck, Stethoscope, Fingerprint, FileText, Award } from 'lucide-react';
 
 const WorkPermitPostApproval = () => {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });

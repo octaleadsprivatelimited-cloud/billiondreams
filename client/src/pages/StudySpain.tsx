@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Globe, CheckCircle, Mail, ArrowRight, Award, TrendingUp, Plane, FileText, ClipboardCheck, ShieldCheck, Target, GraduationCap, DollarSign } from 'lucide-react';
+import { Globe, CheckCircle, Mail, ArrowRight, Award, TrendingUp, Plane, FileText, ClipboardCheck, GraduationCap, DollarSign } from 'lucide-react';
 
 const StudySpain = () => {
   const [formData, setFormData] = useState({
@@ -51,7 +51,6 @@ const StudySpain = () => {
             src="https://flagcdn.com/w1280/es.png" 
             alt="Spain Flag" 
             className="w-full h-full object-cover"
-            style={{ imageRendering: 'high-quality' }}
           />
         </div>
         <div className="absolute inset-0 bg-black/50"></div>

@@ -397,7 +397,6 @@ const Home: React.FC = () => {
                     className="w-full h-full object-contain bg-gray-50"
                     loading="lazy"
                     decoding="async"
-                    style={{ imageRendering: 'high-quality' }}
                     onError={(e) => {
                       e.currentTarget.src = country.image;
                       e.currentTarget.className = 'w-full h-full object-cover';

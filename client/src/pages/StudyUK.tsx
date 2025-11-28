@@ -51,7 +51,6 @@ const StudyUK = () => {
             src="https://flagcdn.com/w1280/gb.png" 
             alt="UK Flag" 
             className="w-full h-full object-cover"
-            style={{ imageRendering: 'high-quality' }}
           />
         </div>
         <div className="absolute inset-0 bg-black/50"></div>

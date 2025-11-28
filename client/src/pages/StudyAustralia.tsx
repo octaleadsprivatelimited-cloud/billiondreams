@@ -51,7 +51,6 @@ const StudyAustralia = () => {
             src="https://flagcdn.com/w1280/au.png" 
             alt="Australia Flag" 
             className="w-full h-full object-cover"
-            style={{ imageRendering: 'high-quality' }}
           />
         </div>
         <div className="absolute inset-0 bg-black/50"></div>
