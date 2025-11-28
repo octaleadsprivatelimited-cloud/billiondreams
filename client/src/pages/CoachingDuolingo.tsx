@@ -50,6 +50,9 @@ const CoachingDuolingo = () => {
             src="/hero-background.avif"
             alt="Background"
             className="w-full h-full object-cover"
+            onError={(e) => {
+              e.currentTarget.src = '/home/slider-1.jpg';
+            }}
           />
         </div>
         <div className="absolute inset-0 bg-black/70"></div>
@@ -316,6 +319,9 @@ const CoachingDuolingo = () => {
                   <div className="relative mb-4">
                     <img
                       src="/services/study_visa.jpg"
+                  onError={(e) => {
+                    e.currentTarget.src = '/services/immigration.jpg';
+                  }}
                       alt="Duolingo Coaching Expert"
                       className="w-full h-40 rounded-xl object-cover ring-4 ring-green-50"
                     />
@@ -450,6 +456,9 @@ const CoachingDuolingo = () => {
               <div className="order-1 md:order-2">
                 <img
                   src="/services/study_visa.jpg"
+                  onError={(e) => {
+                    e.currentTarget.src = '/services/immigration.jpg';
+                  }}
                   alt="Duolingo coaching consultation"
                   className="w-full h-56 md:h-full rounded-xl object-cover shadow-lg"
                 />

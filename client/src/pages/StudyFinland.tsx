@@ -284,6 +284,12 @@ const StudyFinland = () => {
                   <div className="relative mb-4">
                     <img
                       src="/services/study_visa.jpg"
+                  onError={(e) => {
+                    e.currentTarget.src = '/services/immigration.jpg';
+                  }}
+                      onError={(e) => {
+                        e.currentTarget.src = '/services/immigration.jpg';
+                      }}
                       alt="Finland Study Expert"
                       className="w-full h-40 rounded-xl object-cover ring-4 ring-blue-50"
                     />
@@ -418,6 +424,9 @@ const StudyFinland = () => {
               <div className="order-1 md:order-2">
                 <img
                   src="/services/study_visa.jpg"
+                  onError={(e) => {
+                    e.currentTarget.src = '/services/immigration.jpg';
+                  }}
                   alt="Study in Finland consultation"
                   className="w-full h-56 md:h-full rounded-xl object-cover shadow-lg"
                 />

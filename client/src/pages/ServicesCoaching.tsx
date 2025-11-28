@@ -50,6 +50,9 @@ const ServicesCoaching = () => {
             src="/hero-background.avif"
             alt="Background"
             className="w-full h-full object-cover"
+            onError={(e) => {
+              e.currentTarget.src = '/home/slider-1.jpg';
+            }}
           />
         </div>
         <div className="absolute inset-0 bg-black/70"></div>
@@ -284,6 +287,9 @@ const ServicesCoaching = () => {
                   <div className="relative mb-4">
                     <img
                       src="/services/study_visa.jpg"
+                  onError={(e) => {
+                    e.currentTarget.src = '/services/immigration.jpg';
+                  }}
                       alt="Coaching Expert"
                       className="w-full h-40 rounded-xl object-cover ring-4 ring-purple-50"
                     />
@@ -418,6 +424,9 @@ const ServicesCoaching = () => {
               <div className="order-1 md:order-2">
                 <img
                   src="/services/study_visa.jpg"
+                  onError={(e) => {
+                    e.currentTarget.src = '/services/immigration.jpg';
+                  }}
                   alt="Coaching consultation"
                   className="w-full h-56 md:h-full rounded-xl object-cover shadow-lg"
                 />

@@ -120,6 +120,9 @@ const Services: React.FC = () => {
             src="/hero-background.avif"
             alt="Services Background"
             className="w-full h-full object-cover"
+            onError={(e) => {
+              e.currentTarget.src = '/home/slider-1.jpg';
+            }}
           />
         </div>
         {/* Black overlay */}

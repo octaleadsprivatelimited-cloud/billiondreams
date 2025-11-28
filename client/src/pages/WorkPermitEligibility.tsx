@@ -69,6 +69,9 @@ const WorkPermitEligibility = () => {
             src="/hero-background.avif"
             alt="Background"
             className="w-full h-full object-cover"
+            onError={(e) => {
+              e.currentTarget.src = '/home/slider-1.jpg';
+            }}
           />
         </div>
         <div className="absolute inset-0 bg-black/70"></div>

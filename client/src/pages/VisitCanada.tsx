@@ -317,6 +317,9 @@ const VisitCanada = () => {
                   <div className="relative mb-4">
                     <img
                       src="/services/study_visa.jpg"
+                  onError={(e) => {
+                    e.currentTarget.src = '/services/immigration.jpg';
+                  }}
                       alt="Canada Visit Visa Expert"
                       className="w-full h-40 rounded-xl object-cover ring-4 ring-red-50"
                     />
@@ -451,6 +454,9 @@ const VisitCanada = () => {
               <div className="order-1 md:order-2">
                 <img
                   src="/services/study_visa.jpg"
+                  onError={(e) => {
+                    e.currentTarget.src = '/services/immigration.jpg';
+                  }}
                   alt="Visit Canada visa consultation"
                   className="w-full h-56 md:h-full rounded-xl object-cover shadow-lg"
                 />

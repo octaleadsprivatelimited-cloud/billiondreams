@@ -75,6 +75,9 @@ const Footer: React.FC = () => {
           src="/footer-background.jpg"
           alt="Footer Background"
           className="w-full h-full object-cover"
+          onError={(e) => {
+            e.currentTarget.src = '/home/slider-1.jpg';
+          }}
         />
         {/* Dark Overlay for Text Readability */}
         <div className="absolute inset-0 bg-slate-900/75"></div>

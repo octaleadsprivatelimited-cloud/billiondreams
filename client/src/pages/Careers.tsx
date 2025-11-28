@@ -84,6 +84,9 @@ const Careers: React.FC = () => {
             src="/home/slider-1.jpg"
             alt="Careers Background"
             className="w-full h-full object-cover object-top"
+            onError={(e) => {
+              e.currentTarget.src = '/home/slider-3.jpg';
+            }}
           />
         </div>
         {/* Black overlay */}

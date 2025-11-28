@@ -317,6 +317,9 @@ const StudyUK = () => {
                       src="/services/study_visa.jpg"
                       alt="UK Study Expert"
                       className="w-full h-40 rounded-xl object-cover ring-4 ring-blue-50"
+                      onError={(e) => {
+                        e.currentTarget.src = '/services/immigration.jpg';
+                      }}
                     />
                   </div>
                   <h3 className="text-xl font-bold mb-2">Talk to a UK Study Expert</h3>
@@ -451,6 +454,9 @@ const StudyUK = () => {
                   src="/services/study_visa.jpg"
                   alt="Study in UK consultation"
                   className="w-full h-56 md:h-full rounded-xl object-cover shadow-lg"
+                  onError={(e) => {
+                    e.currentTarget.src = '/services/immigration.jpg';
+                  }}
                 />
               </div>
             </div>

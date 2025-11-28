@@ -109,6 +109,9 @@ const Contact: React.FC = () => {
             src="/hero-background.avif"
             alt="Contact Background"
             className="w-full h-full object-cover"
+            onError={(e) => {
+              e.currentTarget.src = '/home/slider-1.jpg';
+            }}
           />
         </div>
         {/* Black overlay */}

@@ -185,6 +185,9 @@ const FAQ: React.FC = () => {
             src="/home/slider-1.jpg"
             alt="FAQ Background"
             className="w-full h-full object-cover object-top"
+            onError={(e) => {
+              e.currentTarget.src = '/home/slider-3.jpg';
+            }}
           />
         </div>
         <div className="relative container mx-auto px-4">

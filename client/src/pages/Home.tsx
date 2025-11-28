@@ -123,6 +123,9 @@ const Home: React.FC = () => {
             className="w-full h-full object-cover"
             loading="lazy"
             decoding="async"
+            onError={(e) => {
+              e.currentTarget.src = '/home/slider-1.jpg';
+            }}
           />
           {/* Gradient Overlay for Fade Effect */}
           <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-slate-50/90 to-purple-50/85"></div>
@@ -528,6 +531,9 @@ const Home: React.FC = () => {
             className="w-full h-full object-cover"
             loading="lazy"
             decoding="async"
+            onError={(e) => {
+              e.currentTarget.src = '/home/slider-3.jpg';
+            }}
           />
           {/* White Fade Overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-white/85 to-white/90"></div>
