@@ -284,13 +284,10 @@ const StudySweden = () => {
                   <div className="relative mb-4">
                     <img
                       src="/services/study_visa.jpg"
-                  onError={(e) => {
-                    e.currentTarget.src = '/services/immigration.jpg';
-                  }}
+                      alt="Sweden Study Expert"
                       onError={(e) => {
                         e.currentTarget.src = '/services/immigration.jpg';
                       }}
-                      alt="Sweden Study Expert"
                       className="w-full h-40 rounded-xl object-cover ring-4 ring-blue-50"
                     />
                   </div>
