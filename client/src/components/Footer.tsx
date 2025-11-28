@@ -68,24 +68,13 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="relative bg-slate-900 text-slate-300 overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <img
-          src="/footer-background.jpg"
-          alt="Footer Background"
-          className="w-full h-full object-cover"
-          onError={(e) => {
-            e.currentTarget.src = '/home/slider-1.jpg';
-          }}
-        />
-        {/* Dark Overlay for Text Readability */}
-        <div className="absolute inset-0 bg-slate-900/75"></div>
-      </div>
+    <footer className="relative bg-white text-slate-700 overflow-hidden border-t border-gray-200">
+      {/* Subtle gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-slate-100 opacity-90"></div>
 
       {/* Main Footer */}
-      <div className="relative z-10 border-b border-slate-800/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="relative z-10 border-b border-gray-200/70">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-8">
             {/* Company Info - 2 cols on large screens */}
             <div className="lg:col-span-2">
@@ -93,16 +82,16 @@ const Footer: React.FC = () => {
                 <img 
                   src="/logo.png" 
                   alt="Billion Dreams Runway Logo" 
-                  className="h-12 md:h-16 w-auto object-contain max-w-[180px] md:max-w-[220px]"
+                  className="h-10 md:h-14 w-auto object-contain max-w-[160px] md:max-w-[200px]"
                   style={{ display: logoLoaded ? 'block' : 'none' }}
                   onLoad={() => setLogoLoaded(true)}
                   onError={() => setLogoLoaded(false)}
                 />
                 {!logoLoaded && (
-                  <h3 className="text-white text-lg md:text-2xl font-bold">Billion Dreams Runway</h3>
+                  <h3 className="text-gray-900 text-lg md:text-2xl font-bold">Billion Dreams Runway</h3>
                 )}
               </Link>
-              <p className="text-slate-400 mb-4 md:mb-6 leading-relaxed text-xs md:text-sm">
+              <p className="text-slate-600 mb-4 md:mb-6 leading-relaxed text-xs md:text-sm">
                 Your trusted partner for overseas education consultancy. 
                 We help students achieve their dreams of studying abroad 
                 with expert guidance, university selection, and comprehensive support.
@@ -111,9 +100,9 @@ const Footer: React.FC = () => {
               {/* Trust Badges */}
               <div className="flex flex-wrap gap-2 md:gap-3 mb-4 md:mb-6">
                 {trustBadges.map((badge, index) => (
-                  <div key={index} className="flex items-center space-x-1 md:space-x-2 bg-slate-800/50 px-2 py-1 md:px-3 md:py-2 rounded-lg">
-                    <badge.icon size={14} className="md:w-4 md:h-4 text-blue-400" />
-                    <span className="text-[10px] md:text-xs font-medium text-slate-300">{badge.text}</span>
+                  <div key={index} className="flex items-center space-x-1 md:space-x-2 bg-white shadow-sm px-2 py-1 md:px-3 md:py-2 rounded-lg border border-gray-100">
+                    <badge.icon size={14} className="md:w-4 md:h-4 text-indigo-500" />
+                    <span className="text-[10px] md:text-xs font-medium text-slate-600">{badge.text}</span>
                   </div>
                 ))}
               </div>
@@ -125,7 +114,7 @@ const Footer: React.FC = () => {
               {/* Mobile Accordion */}
               <button
                 onClick={() => toggleSection('quick')}
-                className="lg:hidden w-full flex items-center justify-between text-white text-base font-bold mb-3 border-t border-slate-800 pt-3"
+                className="lg:hidden w-full flex items-center justify-between text-gray-900 text-base font-semibold mb-3 border-t border-gray-200 pt-3"
               >
                 <span>Quick Links</span>
                 <ChevronDown 
@@ -134,14 +123,14 @@ const Footer: React.FC = () => {
                 />
               </button>
               {/* Desktop Title */}
-              <h3 className="hidden lg:block text-white text-lg font-bold mb-6">Quick Links</h3>
+              <h3 className="hidden lg:block text-gray-900 text-lg font-bold mb-6">Quick Links</h3>
               
               <ul className={`space-y-2 md:space-y-3 ${openSections.quick || window.innerWidth >= 1024 ? 'block' : 'hidden'} lg:block`}>
                 {quickLinks.map((link) => (
                   <li key={link.path}>
                     <Link
                       to={link.path}
-                      className="group inline-flex items-center text-slate-400 hover:text-white transition-colors text-xs md:text-sm"
+                      className="group inline-flex items-center text-slate-600 hover:text-indigo-600 transition-colors text-xs md:text-sm"
                     >
                       <ChevronRight size={14} className="mr-1 group-hover:translate-x-1 transition-transform" />
                       <span>{link.name}</span>
@@ -156,7 +145,7 @@ const Footer: React.FC = () => {
               {/* Mobile Accordion */}
               <button
                 onClick={() => toggleSection('destinations')}
-                className="lg:hidden w-full flex items-center justify-between text-white text-base font-bold mb-3 border-t border-slate-800 pt-3"
+                className="lg:hidden w-full flex items-center justify-between text-gray-900 text-base font-semibold mb-3 border-t border-gray-200 pt-3"
               >
                 <span>Study Destinations</span>
                 <ChevronDown 
@@ -165,14 +154,14 @@ const Footer: React.FC = () => {
                 />
               </button>
               {/* Desktop Title */}
-              <h3 className="hidden lg:block text-white text-lg font-bold mb-6">Study Destinations</h3>
+              <h3 className="hidden lg:block text-gray-900 text-lg font-bold mb-6">Study Destinations</h3>
               
               <ul className={`space-y-2 md:space-y-3 ${openSections.destinations || window.innerWidth >= 1024 ? 'block' : 'hidden'} lg:block`}>
                 {studyDestinations.map((link) => (
                   <li key={link.path + link.name}>
                     <Link
                       to={link.path}
-                      className="group inline-flex items-center text-slate-400 hover:text-white transition-colors text-xs md:text-sm"
+                      className="group inline-flex items-center text-slate-600 hover:text-indigo-600 transition-colors text-xs md:text-sm"
                     >
                       <ChevronRight size={14} className="mr-1 group-hover:translate-x-1 transition-transform" />
                       <span>{link.name}</span>
@@ -187,7 +176,7 @@ const Footer: React.FC = () => {
               {/* Mobile Accordion */}
               <button
                 onClick={() => toggleSection('services')}
-                className="lg:hidden w-full flex items-center justify-between text-white text-base font-bold mb-3 border-t border-slate-800 pt-3"
+                className="lg:hidden w-full flex items-center justify-between text-gray-900 text-base font-semibold mb-3 border-t border-gray-200 pt-3"
               >
                 <span>Our Services</span>
                 <ChevronDown 
@@ -196,14 +185,14 @@ const Footer: React.FC = () => {
                 />
               </button>
               {/* Desktop Title */}
-              <h3 className="hidden lg:block text-white text-lg font-bold mb-6">Our Services</h3>
+              <h3 className="hidden lg:block text-gray-900 text-lg font-bold mb-6">Our Services</h3>
               
               <ul className={`space-y-2 md:space-y-3 ${openSections.services || window.innerWidth >= 1024 ? 'block' : 'hidden'} lg:block`}>
                 {ourServices.map((link) => (
                   <li key={link.path + link.name}>
                     <Link
                       to={link.path}
-                      className="group inline-flex items-center text-slate-400 hover:text-white transition-colors text-xs md:text-sm"
+                      className="group inline-flex items-center text-slate-600 hover:text-indigo-600 transition-colors text-xs md:text-sm"
                     >
                       <ChevronRight size={14} className="mr-1 group-hover:translate-x-1 transition-transform" />
                       <span>{link.name}</span>
@@ -217,33 +206,33 @@ const Footer: React.FC = () => {
         </div>
 
       {/* Bottom Bar */}
-      <div className="relative z-10 bg-slate-950/80">
+      <div className="relative z-10 bg-gray-100 border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0 text-xs md:text-sm">
-            <div className="flex flex-col items-center md:items-start space-y-1 md:space-y-2">
-              <p className="text-slate-500 text-[10px] md:text-sm">
-                © {currentYear} <span className="text-white font-semibold">Billion Dreams Runway</span>. All rights reserved.
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0 text-xs md:text-sm text-slate-600">
+            <div className="flex flex-col items-center md:items-start space-y-1 md:space-y-2 text-center md:text-left">
+              <p className="text-[10px] md:text-sm">
+                © {currentYear} <span className="text-gray-900 font-semibold">Billion Dreams Runway</span>. All rights reserved.
               </p>
-              <p className="text-slate-600 text-[9px] md:text-xs">
+              <p className="text-[9px] md:text-xs">
                 Developed by{' '}
                 <a 
                   href="https://www.octaleads.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-slate-400 hover:text-white transition-colors font-semibold"
+                  className="text-indigo-600 hover:text-indigo-500 transition-colors font-semibold"
                 >
                   Octaleads Pvt Ltd.
                 </a>
               </p>
             </div>
             <div className="flex items-center space-x-4 md:space-x-6 text-[10px] md:text-sm">
-              <Link to="/privacy-policy" className="text-slate-500 hover:text-white transition-colors">
+              <Link to="/privacy-policy" className="text-slate-600 hover:text-indigo-600 transition-colors">
                 Privacy
               </Link>
-              <Link to="/terms-of-service" className="text-slate-500 hover:text-white transition-colors">
+              <Link to="/terms-of-service" className="text-slate-600 hover:text-indigo-600 transition-colors">
                 Terms
               </Link>
-              <Link to="/sitemap" className="text-slate-500 hover:text-white transition-colors">
+              <Link to="/sitemap" className="text-slate-600 hover:text-indigo-600 transition-colors">
                 Sitemap
               </Link>
             </div>
