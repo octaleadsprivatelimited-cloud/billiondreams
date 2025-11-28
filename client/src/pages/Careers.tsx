@@ -86,6 +86,8 @@ const Careers: React.FC = () => {
             className="w-full h-full object-cover object-top"
           />
         </div>
+        {/* Black overlay */}
+        <div className="absolute inset-0 bg-black/70"></div>
         
         <div className="container mx-auto px-4 text-center relative z-10">
           <motion.div

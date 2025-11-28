@@ -15,6 +15,7 @@ const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [logoLoaded, setLogoLoaded] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -57,9 +58,15 @@ const Header: React.FC = () => {
       { name: 'UK', path: '/study-uk' },
       { name: 'Canada', path: '/study-canada' },
       { name: 'Australia', path: '/study-australia' },
-      { name: 'Netherlands', path: '/study-netherlands' },
+      { name: 'Germany', path: '/study-germany' },
+      { name: 'France', path: '/study-france' },
+      { name: 'Italy', path: '/study-italy' },
+      { name: 'Ireland', path: '/study-ireland' },
+      { name: 'Sweden', path: '/study-sweden' },
+      { name: 'Finland', path: '/study-finland' },
+      { name: 'Spain', path: '/study-spain' },
+      { name: 'Switzerland', path: '/study-switzerland' },
       { name: 'New Zealand', path: '/study-new-zealand' },
-      { name: 'Poland', path: '/study-poland' },
       { name: 'Malaysia', path: '/study-malaysia' }
     ],
     visit: [
@@ -82,11 +89,16 @@ const Header: React.FC = () => {
       { name: 'PTE', path: '/coaching-pte' },
       { name: 'Duolingo', path: '/coaching-duolingo' }
     ],
-    services: [
-      { name: 'Overseas Education', path: '/services-overseas-education', desc: 'Complete study abroad solutions and guidance', icon: '🎓' },
-      { name: 'Coaching', path: '/services-coaching', desc: 'Test preparation and academic coaching', icon: '📚' },
-      { name: 'Immigration', path: '/services-immigration', desc: 'Immigration and visa assistance services', icon: '✈️' },
-      { name: 'Virtual Training and Counselling', path: '/services-virtual-training', desc: 'Online counseling and training programs', icon: '💻' }
+    workPermit: [
+      { name: 'Eligibility Assessment', path: '/work-permit-eligibility', desc: 'We evaluate your profile or business needs to determine the best work permit category. Our consultants explain requirements, processing times, and the complete approval pathway.', icon: '📋' },
+      { name: 'Document Preparation', path: '/work-permit-documents', desc: 'We provide a clear checklist and review all documents for accuracy and compliance. Our team assists in preparing application forms, letters, and supporting paperwork to ensure a smooth submission.', icon: '📄' },
+      { name: 'Application Strategy', path: '/work-permit-strategy', desc: 'Every case is different. We create a customized application plan designed to maximize approval rates and ensure full compliance with immigration rules.', icon: '🎯' },
+      { name: 'Application Submission', path: '/work-permit-submission', desc: 'Our team manages the full submission process—from compiling your application to coordinating with immigration authorities, embassies, and visa centers. You receive continuous updates until a decision is made.', icon: '📤' },
+      { name: 'Employer Services', path: '/work-permit-employer', desc: 'Ideal for companies hiring international talent: Employer sponsorship & registration, Labour market test support, Compliance guidance, Assistance with preparing compliant employment contracts', icon: '🏢' },
+      { name: 'Follow-Up & Status Tracking', path: '/work-permit-tracking', desc: 'We monitor your application in real time and handle all communication with authorities, including responses to additional document requests or clarification notices.', icon: '📊' },
+      { name: 'Post-Approval Support', path: '/work-permit-post-approval', desc: 'Once your work permit is approved, we help you complete all follow-up requirements such as: Visa stamping, Medical tests, Biometrics, Residence permit or national ID processing', icon: '✅' },
+      { name: 'Compliance & Renewal Assistance', path: '/work-permit-renewal', desc: 'We offer ongoing support for work permit renewals, cancellations, changes in employment status, and updates on immigration law changes—ensuring you remain fully compliant.', icon: '🔄' },
+      { name: 'Additional Services', path: '/work-permit-additional', desc: 'Enhance your work permit process with optional add-ons: Translation & document attestation, Family/dependent visa processing, Relocation and onboarding assistance, Travel & insurance guidance', icon: '➕' }
     ],
     migrate: [
       { name: 'Canada', path: '/migrate-canada' },
@@ -100,7 +112,7 @@ const Header: React.FC = () => {
     { name: 'Study', path: '/study-usa', hasDropdown: true, dropdownType: 'study' },
     { name: 'Visit', path: '/visit-usa', hasDropdown: true, dropdownType: 'visit' },
     { name: 'Coaching', path: '/coaching-gre', hasDropdown: true, dropdownType: 'coaching' },
-    { name: 'Services', path: '/services-overseas-education', hasDropdown: true, dropdownType: 'services' },
+    { name: 'Work Permit Services', path: '/work-permit-eligibility', hasDropdown: true, dropdownType: 'workPermit' },
     { name: 'Migrate', path: '/migrate-canada', hasDropdown: true, dropdownType: 'migrate' },
     { name: 'Blog', path: '/blog-resources' },
     { name: 'Contact Us', path: '/lets-start-your-journey' }
@@ -112,16 +124,30 @@ const Header: React.FC = () => {
       <motion.header 
         className={`sticky top-0 z-50 transition-all duration-300 relative ${
           isScrolled 
-            ? 'bg-black/95 backdrop-blur-sm shadow-xl' 
-            : 'bg-black shadow-md'
+            ? 'backdrop-blur-sm shadow-xl border-b-2 border-gray-400' 
+            : 'shadow-md border-b-2 border-gray-400'
         }`}
+        style={{ 
+          background: 'linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 50%, #c0c0c0 100%)',
+          boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 2px 4px rgba(0, 0, 0, 0.1)'
+        }}
       >
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
-          <div className="flex justify-between items-center h-14 md:h-16 lg:h-20">
+          <div className="flex justify-between items-center h-12 md:h-14 lg:h-16">
             {/* Logo */}
-            <Link to="/" className="flex items-center space-x-2 md:space-x-3 group">
-              <div className="relative h-14 md:h-16 lg:h-20 flex items-center">
-                <span className="text-white text-lg md:text-xl lg:text-2xl font-bold">Billion Dreams Runway</span>
+            <Link to="/" className="flex items-center group">
+              <div className="relative h-12 md:h-14 lg:h-16 flex items-center">
+                <img 
+                  src="/logo.png" 
+                  alt="Billion Dreams Runway Logo" 
+                  className="h-full w-auto object-contain max-w-[120px] md:max-w-[150px]"
+                  style={{ display: logoLoaded ? 'block' : 'none' }}
+                  onLoad={() => setLogoLoaded(true)}
+                  onError={() => setLogoLoaded(false)}
+                />
+                {!logoLoaded && (
+                  <span className="text-black text-base md:text-lg lg:text-xl font-bold whitespace-nowrap">Billion Dreams Runway</span>
+                )}
               </div>
             </Link>
 
@@ -132,20 +158,20 @@ const Header: React.FC = () => {
                   {item.hasDropdown ? (
                     <div className="relative">
                       <button
-                        onMouseEnter={() => setActiveDropdown(item.dropdownType || 'services')}
-                        onClick={() => setActiveDropdown(activeDropdown === (item.dropdownType || 'services') ? null : (item.dropdownType || 'services'))}
+                        onMouseEnter={() => setActiveDropdown(item.dropdownType || 'workPermit')}
+                        onClick={() => setActiveDropdown(activeDropdown === (item.dropdownType || 'workPermit') ? null : (item.dropdownType || 'workPermit'))}
                         className={`px-4 py-2 rounded-full text-sm font-bold transition-all duration-300 flex items-center space-x-1 ${
-                          ((item.dropdownType === 'services' && (location.pathname.includes('/services-overseas-education') || location.pathname.includes('/services-coaching') || location.pathname.includes('/services-immigration') || location.pathname.includes('/services-virtual-training') || location.pathname.includes('/comprehensive-education-solutions'))) ||
-                           (item.dropdownType === 'study' && (location.pathname.includes('/study-usa') || location.pathname.includes('/study-uk') || location.pathname.includes('/study-canada') || location.pathname.includes('/study-australia') || location.pathname.includes('/study-netherlands') || location.pathname.includes('/study-new-zealand') || location.pathname.includes('/study-poland') || location.pathname.includes('/study-malaysia'))) ||
+                          ((item.dropdownType === 'workPermit' && (location.pathname.includes('/work-permit-'))) ||
+                           (item.dropdownType === 'study' && (location.pathname.includes('/study-usa') || location.pathname.includes('/study-uk') || location.pathname.includes('/study-canada') || location.pathname.includes('/study-australia') || location.pathname.includes('/study-new-zealand') || location.pathname.includes('/study-malaysia'))) ||
                            (item.dropdownType === 'visit' && (location.pathname.includes('/visit-usa') || location.pathname.includes('/visit-uk') || location.pathname.includes('/visit-canada') || location.pathname.includes('/visit-australia') || location.pathname.includes('/visit-netherlands') || location.pathname.includes('/visit-new-zealand') || location.pathname.includes('/visit-malaysia') || location.pathname.includes('/visit-dubai') || location.pathname.includes('/visit-singapore') || location.pathname.includes('/visit-schengen') || location.pathname.includes('/visit-ireland'))) ||
                            (item.dropdownType === 'coaching' && (location.pathname.includes('/coaching-gre') || location.pathname.includes('/coaching-ielts') || location.pathname.includes('/coaching-toefl') || location.pathname.includes('/coaching-pte') || location.pathname.includes('/coaching-duolingo'))) ||
                            (item.dropdownType === 'migrate' && (location.pathname.includes('/migrate-canada') || location.pathname.includes('/migrate-australia'))))
                             ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg'
-                            : 'text-white hover:bg-white/10 hover:text-white'
+                            : 'text-black hover:bg-gray-100 hover:text-black'
                         }`}
                       >
                         <span>{item.name}</span>
-                        <ChevronDown size={14} className={`transition-transform duration-300 ${activeDropdown === (item.dropdownType || 'services') || activeDropdown === 'study' || activeDropdown === 'visit' || activeDropdown === 'coaching' || activeDropdown === 'migrate' ? 'rotate-180' : ''}`} />
+                        <ChevronDown size={14} className={`transition-transform duration-300 ${activeDropdown === (item.dropdownType || 'workPermit') || activeDropdown === 'study' || activeDropdown === 'visit' || activeDropdown === 'coaching' || activeDropdown === 'migrate' ? 'rotate-180' : ''}`} />
                       </button>
                     </div>
                   ) : (
@@ -155,7 +181,7 @@ const Header: React.FC = () => {
                       className={`px-4 py-2 rounded-full text-sm font-bold transition-all duration-300 ${
                         location.pathname === item.path
                           ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg'
-                          : 'text-white hover:bg-white/10 hover:text-white'
+                          : 'text-black hover:bg-gray-100 hover:text-black'
                       }`}
                     >
                       {item.name}
@@ -168,7 +194,7 @@ const Header: React.FC = () => {
             {/* Mobile menu button */}
             <button
               onClick={toggleMobileMenu}
-              className="lg:hidden p-1.5 rounded-xl text-white hover:bg-white/10 transition-all duration-300"
+              className="lg:hidden p-1.5 rounded-xl text-black hover:bg-gray-100 transition-all duration-300"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X size={20} strokeWidth={2.5} /> : <Menu size={20} strokeWidth={2.5} />}
@@ -186,7 +212,7 @@ const Header: React.FC = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="hidden lg:block fixed top-14 md:top-16 lg:top-20 left-0 right-0 bottom-0 z-40 bg-black/60 backdrop-blur-md"
+              className="hidden lg:block fixed top-12 md:top-14 lg:top-16 left-0 right-0 bottom-0 z-40 bg-black/60 backdrop-blur-md"
               onClick={() => setActiveDropdown(null)}
             />
             
@@ -195,9 +221,14 @@ const Header: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="hidden lg:block fixed top-14 md:top-16 lg:top-20 left-0 right-0 z-50 bg-gradient-to-br from-gray-900 via-black to-gray-900 backdrop-blur-xl shadow-2xl border-b border-indigo-500/20"
+              className="hidden lg:block fixed top-12 md:top-14 lg:top-16 left-0 right-0 z-50 bg-gradient-to-br from-gray-900 via-black to-gray-900 backdrop-blur-xl shadow-2xl border-b border-indigo-500/20"
               onClick={(e) => e.stopPropagation()}
-              onMouseLeave={() => setActiveDropdown(null)}
+              onMouseLeave={(e) => {
+                const relatedTarget = e.relatedTarget as HTMLElement;
+                if (!relatedTarget || !e.currentTarget.contains(relatedTarget)) {
+                  setActiveDropdown(null);
+                }
+              }}
             >
               <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-8 md:py-12">
                 {/* Creative Header */}
@@ -288,13 +319,13 @@ const Header: React.FC = () => {
                           Europe
                         </h4>
                       </div>
-                      <div className="space-y-3">
-                        {menuCategories.study.filter(item => ['UK', 'Netherlands', 'Poland'].includes(item.name)).map((item, index) => (
+                      <div className="space-y-3 max-h-[500px] overflow-y-auto pr-2 dropdown-scroll">
+                        {menuCategories.study.filter(item => ['UK', 'Germany', 'France', 'Italy', 'Ireland', 'Sweden', 'Finland', 'Spain', 'Switzerland'].includes(item.name)).map((item, index) => (
                           <motion.div
                             key={item.name}
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.3, delay: 0.25 + index * 0.1 }}
+                            transition={{ duration: 0.3, delay: 0.25 + index * 0.05 }}
                             whileHover={{ scale: 1.05, x: 6 }}
                           >
                             <Link
@@ -436,7 +467,7 @@ const Header: React.FC = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="hidden lg:block fixed top-14 md:top-16 lg:top-20 left-0 right-0 bottom-0 z-40 bg-black/60 backdrop-blur-md"
+              className="hidden lg:block fixed top-12 md:top-14 lg:top-16 left-0 right-0 bottom-0 z-40 bg-black/60 backdrop-blur-md"
               onClick={() => setActiveDropdown(null)}
             />
             
@@ -445,7 +476,7 @@ const Header: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="hidden lg:block fixed top-14 md:top-16 lg:top-20 left-0 right-0 z-50 bg-black/95 backdrop-blur-sm shadow-2xl"
+              className="hidden lg:block fixed top-12 md:top-14 lg:top-16 left-0 right-0 z-50 bg-black/95 backdrop-blur-sm shadow-2xl"
               onClick={(e) => e.stopPropagation()}
               onMouseLeave={() => setActiveDropdown(null)}
             >
@@ -601,7 +632,7 @@ const Header: React.FC = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="hidden lg:block fixed top-14 md:top-16 lg:top-20 left-0 right-0 bottom-0 z-40 bg-black/60 backdrop-blur-md"
+              className="hidden lg:block fixed top-12 md:top-14 lg:top-16 left-0 right-0 bottom-0 z-40 bg-black/60 backdrop-blur-md"
               onClick={() => setActiveDropdown(null)}
             />
             
@@ -610,7 +641,7 @@ const Header: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="hidden lg:block fixed top-14 md:top-16 lg:top-20 left-0 right-0 z-50 bg-black/95 backdrop-blur-sm shadow-2xl"
+              className="hidden lg:block fixed top-12 md:top-14 lg:top-16 left-0 right-0 z-50 bg-black/95 backdrop-blur-sm shadow-2xl"
               onClick={(e) => e.stopPropagation()}
               onMouseLeave={() => setActiveDropdown(null)}
             >
@@ -659,7 +690,7 @@ const Header: React.FC = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="hidden lg:block fixed top-14 md:top-16 lg:top-20 left-0 right-0 bottom-0 z-40 bg-black/60 backdrop-blur-md"
+              className="hidden lg:block fixed top-12 md:top-14 lg:top-16 left-0 right-0 bottom-0 z-40 bg-black/60 backdrop-blur-md"
               onClick={() => setActiveDropdown(null)}
             />
             
@@ -668,7 +699,7 @@ const Header: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="hidden lg:block fixed top-14 md:top-16 lg:top-20 left-0 right-0 z-50 bg-black/95 backdrop-blur-sm shadow-2xl"
+              className="hidden lg:block fixed top-12 md:top-14 lg:top-16 left-0 right-0 z-50 bg-black/95 backdrop-blur-sm shadow-2xl"
               onClick={(e) => e.stopPropagation()}
               onMouseLeave={() => setActiveDropdown(null)}
             >
@@ -708,16 +739,16 @@ const Header: React.FC = () => {
         )}
       </AnimatePresence>
 
-      {/* Services Dropdown - Desktop */}
+      {/* Work Permit Services Dropdown - Desktop */}
       <AnimatePresence>
-        {activeDropdown === 'services' && (
+        {activeDropdown === 'workPermit' && (
           <>
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="hidden lg:block fixed top-14 md:top-16 lg:top-20 left-0 right-0 bottom-0 z-40 bg-black/60 backdrop-blur-md"
+              className="hidden lg:block fixed top-12 md:top-14 lg:top-16 left-0 right-0 bottom-0 z-40 bg-black/60 backdrop-blur-md"
               onClick={() => setActiveDropdown(null)}
             />
             
@@ -726,20 +757,20 @@ const Header: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="hidden lg:block fixed top-14 md:top-16 lg:top-20 left-0 right-0 z-50 bg-black/95 backdrop-blur-sm shadow-2xl"
+              className="hidden lg:block fixed top-12 md:top-14 lg:top-16 left-0 right-0 z-50 bg-black/95 backdrop-blur-sm shadow-2xl"
               onClick={(e) => e.stopPropagation()}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
-                <div className="mb-2 text-center">
-                  <h3 className="text-lg font-bold text-white mb-0.5">
-                    Our Services
+              <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                <div className="mb-4 text-center">
+                  <h3 className="text-xl font-bold text-white mb-1">
+                    Work Permit Services
                   </h3>
-                  <p className="text-sm text-gray-300">Choose the service that fits your needs</p>
+                  <p className="text-sm text-gray-300">Comprehensive work permit solutions for individuals and employers</p>
                 </div>
                 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1.5">
-                  {menuCategories.services.map((item, index) => (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                  {menuCategories.workPermit.map((item, index) => (
                     <motion.div
                       key={item.name}
                       initial={{ opacity: 0, y: 20 }}
@@ -751,11 +782,19 @@ const Header: React.FC = () => {
                       <Link
                         to={item.path}
                         onClick={() => setActiveDropdown(null)}
-                        className="group relative overflow-hidden p-2 rounded-md bg-gray-900 hover:bg-gray-800 border border-gray-700 hover:border-blue-500 transition-all duration-300 hover:shadow-md block h-full"
+                        className="group relative overflow-hidden p-4 rounded-lg bg-gray-900 hover:bg-gray-800 border border-gray-700 hover:border-blue-500 transition-all duration-300 hover:shadow-lg block h-full"
                       >
-                        <h5 className="text-sm font-bold text-white group-hover:text-blue-400 transition-colors leading-tight">
-                          {item.name}
-                        </h5>
+                        <div className="flex items-start gap-3">
+                          <span className="text-2xl">{item.icon}</span>
+                          <div className="flex-1">
+                            <h5 className="text-sm font-bold text-white group-hover:text-blue-400 transition-colors leading-tight mb-1">
+                              {item.name}
+                            </h5>
+                            <p className="text-xs text-gray-400 leading-relaxed line-clamp-2">
+                              {item.desc}
+                            </p>
+                          </div>
+                        </div>
                       </Link>
                     </motion.div>
                   ))}
@@ -775,7 +814,7 @@ const Header: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden fixed inset-x-0 top-14 md:top-16 bottom-0 bg-black border-t border-gray-800 shadow-lg z-40 overflow-y-auto overscroll-contain"
+            className="lg:hidden fixed inset-x-0 top-12 md:top-14 bottom-0 bg-black border-t border-gray-800 shadow-lg z-40 overflow-y-auto overscroll-contain"
           >
             <div className="px-2 py-1 pb-4">
               <nav className="space-y-0">
@@ -789,13 +828,13 @@ const Header: React.FC = () => {
                     {item.hasDropdown ? (
                         <div>
                         <motion.button
-                          onClick={() => toggleDropdown(item.dropdownType || 'services')}
+                          onClick={() => toggleDropdown(item.dropdownType || 'workPermit')}
                           className="w-full flex items-center justify-between px-2.5 py-1.5 text-sm font-semibold text-white hover:bg-gray-800 rounded-md transition-all duration-200"
                           whileTap={{ scale: 0.95 }}
                         >
                           <span>{item.name}</span>
                           <motion.div
-                            animate={{ rotate: activeDropdown === (item.dropdownType || 'services') ? 180 : 0 }}
+                            animate={{ rotate: activeDropdown === (item.dropdownType || 'workPermit') ? 180 : 0 }}
                             transition={{ duration: 0.3 }}
                           >
                             <ChevronDown size={14} strokeWidth={2.5} />
@@ -890,7 +929,7 @@ const Header: React.FC = () => {
                               ))}
                             </motion.div>
                           )}
-                          {activeDropdown === 'services' && item.dropdownType === 'services' && (
+                          {activeDropdown === 'workPermit' && item.dropdownType === 'workPermit' && (
                             <motion.div
                               initial={{ opacity: 0, height: 0 }}
                               animate={{ opacity: 1, height: 'auto' }}
@@ -898,7 +937,7 @@ const Header: React.FC = () => {
                               transition={{ duration: 0.3 }}
                               className="mt-0.5 space-y-0 bg-gray-900 rounded-md p-1"
                             >
-                              {menuCategories.services.map((item, idx) => (
+                              {menuCategories.workPermit.map((item, idx) => (
                                 <motion.div
                                   key={item.name}
                                   initial={{ opacity: 0, x: -10 }}

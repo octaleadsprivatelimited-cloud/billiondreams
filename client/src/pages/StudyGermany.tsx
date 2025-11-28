@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle, Mail, ArrowRight, Plane, FileText, ClipboardCheck, ShieldCheck, Target, DollarSign, Calendar, MapPin } from 'lucide-react';
+import { Globe, CheckCircle, Mail, ArrowRight, Award, TrendingUp, Plane, FileText, ClipboardCheck, ShieldCheck, Target, GraduationCap, DollarSign } from 'lucide-react';
 
-const VisitIreland = () => {
+const StudyGermany = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -22,7 +22,7 @@ const VisitIreland = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const subject = 'Visit Ireland Visa Inquiry';
+      const subject = 'Study in Germany Inquiry';
       const body = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0APhone: ${formData.phone}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
       window.location.href = `mailto:info@billiondreamsrunway.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       setIsSubmitted(true);
@@ -35,11 +35,11 @@ const VisitIreland = () => {
     }
   };
 
-  const visaTypes = [
-    { name: "Short Stay Visa (C)", features: ["Tourism", "Family visits", "Business trips", "Short stays"], gradient: "from-green-600 to-emerald-600" },
-    { name: "Business Visa", features: ["Meetings", "Conferences", "Trade shows", "Commercial activities"], gradient: "from-blue-600 to-cyan-600" },
-    { name: "Transit Visa", features: ["Airport transit", "Short layovers", "Connecting flights", "24-48 hour transit"], gradient: "from-orange-600 to-amber-600" },
-    { name: "Family Visit Visa", features: ["Visiting family", "Extended stays", "Multiple entries", "Long-term visits"], gradient: "from-purple-600 to-indigo-600" }
+  const universities = [
+    { name: "Technical Universities", programs: ["TU Munich", "RWTH Aachen", "TU Berlin", "KIT Karlsruhe"], gradient: "from-yellow-600 to-amber-600" },
+    { name: "Research Universities", programs: ["LMU Munich", "Heidelberg University", "Humboldt Berlin", "University of Freiburg"], gradient: "from-red-600 to-orange-600" },
+    { name: "Business Schools", programs: ["WHU", "Mannheim Business School", "ESMT Berlin", "Frankfurt School"], gradient: "from-blue-600 to-cyan-600" },
+    { name: "Applied Sciences", programs: ["Hochschule München", "FH Aachen", "HTW Berlin", "Hochschule Darmstadt"], gradient: "from-green-600 to-emerald-600" }
   ];
 
   return (
@@ -48,8 +48,8 @@ const VisitIreland = () => {
         {/* Country Flag Background */}
         <div className="absolute inset-0 bg-white">
           <img 
-            src="https://flagcdn.com/w1280/ie.png" 
-            alt="Ireland Flag" 
+            src="https://flagcdn.com/w1280/de.png" 
+            alt="Germany Flag" 
             className="w-full h-full object-cover"
             style={{ imageRendering: 'high-quality' }}
           />
@@ -61,7 +61,7 @@ const VisitIreland = () => {
             <nav className="text-sm text-white/80 mb-6">
               <a href="/" className="hover:text-white">Home</a>
               <span className="mx-2">/</span>
-              <span className="text-white">Visit Ireland</span>
+              <span className="text-white">Study in Germany</span>
             </nav>
 
             <div className="grid md:grid-cols-2 gap-8 items-center text-white">
@@ -71,7 +71,7 @@ const VisitIreland = () => {
                   animate={{ opacity: 1, y: 0 }}
                   className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight"
                 >
-                  Visit Ireland
+                  Study in Germany
                 </motion.h1>
                 <motion.p
                   initial={{ opacity: 0, y: 30 }}
@@ -79,7 +79,7 @@ const VisitIreland = () => {
                   transition={{ delay: 0.15 }}
                   className="text-lg md:text-xl mb-6 text-white/90"
                 >
-                  Experience Ireland's stunning landscapes, rich culture, and warm hospitality. Get expert visa assistance for your Irish adventure.
+                  Experience world-class education with low or no tuition fees at top-ranked German universities. Germany offers excellent engineering, technology, and research programs.
                 </motion.p>
                 <div className="flex flex-row gap-2 md:gap-3">
                   <button
@@ -94,7 +94,7 @@ const VisitIreland = () => {
               <div className="hidden md:block">
                 <div className="glass-effect rounded-2xl p-6 shadow-neon-lg">
                   <div className="grid grid-cols-2 gap-4">
-                    {[{label: 'Visa Types', value: '4+'}, {label: 'Processing', value: '10-15 Days'}, {label: 'Success Rate', value: '98%'}, {label: 'Validity', value: '90 Days'}].map((s, idx) => (
+                    {[{label: 'Top Universities', value: '400+'}, {label: 'International Students', value: '350K+'}, {label: 'Tuition Fees', value: 'Free/Low'}, {label: 'Success Rate', value: '98%'}].map((s, idx) => (
                       <div key={idx} className="bg-white/10 rounded-xl p-4">
                         <div className="text-2xl font-extrabold">{s.value}</div>
                         <div className="text-sm text-white/80">{s.label}</div>
@@ -104,11 +104,10 @@ const VisitIreland = () => {
                 </div>
               </div>
             </div>
-          </div>
 
           <div className="mt-8">
             <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
-              {[{icon: Plane, label: 'Tourist Visa'}, {icon: MapPin, label: 'Business Visa'}, {icon: Calendar, label: 'Quick Processing'}, {icon: ShieldCheck, label: 'Expert Support'}].map((it, idx) => (
+              {[{icon: GraduationCap, label: 'Free Tuition'}, {icon: Award, label: 'Top Rankings'}, {icon: TrendingUp, label: 'Job Market'}, {icon: Plane, label: 'Visa Support'}].map((it, idx) => (
                 <div key={idx} className="glass-effect rounded-xl py-3 px-4 text-white/90 flex items-center gap-2 hover:bg-white/15 transition">
                   <it.icon size={18} />
                   <span className="text-sm">{it.label}</span>
@@ -116,6 +115,7 @@ const VisitIreland = () => {
               ))}
             </div>
           </div>
+        </div>
         </div>
       </section>
 
@@ -130,22 +130,22 @@ const VisitIreland = () => {
                 className="bg-white rounded-2xl shadow-xl p-8 md:p-12"
               >
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                  Why Visit Ireland?
+                  Why Study in Germany?
                 </h2>
                 <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                  Ireland offers breathtaking landscapes from the dramatic Cliffs of Moher to the Ring of Kerry, rich history, vibrant culture, and warm hospitality. From the vibrant streets of Dublin to the scenic countryside and historic castles, Ireland promises unforgettable experiences.
+                  Germany is renowned for its excellent education system, particularly in engineering, technology, and sciences. Most public universities offer tuition-free education for international students, making it one of the most affordable study destinations in Europe. German degrees are highly respected worldwide and open doors to excellent career opportunities.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Ireland visitor visas allow you to explore this beautiful country for tourism, business, or visiting family and friends. With proper documentation and expert guidance, you can obtain a visa that enables memorable experiences across the Emerald Isle.
+                  With over 400 universities offering programs in English and German, students can choose from a wide range of courses. Germany's strong economy and job market provide excellent post-study work opportunities, and the country offers pathways to permanent residency for skilled graduates.
                 </p>
               </motion.div>
 
               <div className="grid md:grid-cols-2 gap-6">
                 {[
-                  { icon: Plane, title: "Short Stay Visa", desc: "Perfect for tourism, family visits, and short stays" },
-                  { icon: MapPin, title: "Business Visitor Visa", desc: "For business meetings, conferences, and training" },
-                  { icon: Calendar, title: "Quick Processing", desc: "10-15 days processing with expert assistance" },
-                  { icon: ShieldCheck, title: "Multiple Entries", desc: "Flexible travel options with extended validity" }
+                  { icon: GraduationCap, title: "Free/Low Tuition", desc: "Most public universities charge no tuition fees" },
+                  { icon: Award, title: "Top Rankings", desc: "Many universities rank in top 100 globally" },
+                  { icon: TrendingUp, title: "Strong Job Market", desc: "Excellent opportunities in engineering and tech" },
+                  { icon: Globe, title: "English Programs", desc: "Wide range of English-taught programs available" }
                 ].map((benefit, index) => (
                   <motion.div
                     key={index}
@@ -155,31 +155,31 @@ const VisitIreland = () => {
                     transition={{ delay: index * 0.05 }}
                     className="bg-white rounded-xl shadow-lifted p-6 hover:shadow-neon transition"
                   >
-                    <benefit.icon className="text-green-600 mb-4" size={40} />
+                    <benefit.icon className="text-yellow-600 mb-4" size={40} />
                     <h3 className="text-xl font-bold text-gray-900 mb-2">{benefit.title}</h3>
                     <p className="text-gray-600">{benefit.desc}</p>
                   </motion.div>
                 ))}
               </div>
 
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-4">Ireland Visa Types</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-4">Top Universities & Programs</h2>
               <div className="grid md:grid-cols-2 gap-6">
-                {visaTypes.map((visa, index) => (
+                {universities.map((university, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.05 }}
-                    className={`relative overflow-hidden bg-gradient-to-br ${visa.gradient} rounded-2xl shadow-xl p-8 text-white`}
+                    className={`relative overflow-hidden bg-gradient-to-br ${university.gradient} rounded-2xl shadow-xl p-8 text-white`}
                   >
                     <div className="absolute -right-10 -top-10 w-40 h-40 rounded-full bg-white/10 blur-2xl" />
-                    <h3 className="relative text-2xl font-bold mb-4">{visa.name}</h3>
+                    <h3 className="relative text-2xl font-bold mb-4">{university.name}</h3>
                     <ul className="relative space-y-3">
-                      {visa.features.map((feature, idx) => (
+                      {university.programs.map((program, idx) => (
                         <li key={idx} className="flex items-center text-sm">
                           <CheckCircle className="mr-2 flex-shrink-0" size={20} />
-                          <span>{feature}</span>
+                          <span>{program}</span>
                         </li>
                       ))}
                     </ul>
@@ -191,25 +191,23 @@ const VisitIreland = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="bg-gradient-to-br from-green-600 to-emerald-600 rounded-2xl shadow-xl p-8 md:p-12 text-white"
+                className="bg-gradient-to-br from-yellow-600 to-amber-800 rounded-2xl shadow-xl p-8 md:p-12 text-white"
               >
-                <h2 className="text-3xl md:text-4xl font-bold mb-8">Our Ireland Visit Visa Services</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-8">Our Germany Study Services</h2>
                 <ul className="grid md:grid-cols-2 gap-4">
                   {[
-                    "Online visa application assistance",
-                    "Document checklist preparation",
-                    "Financial documentation support",
-                    "Travel itinerary planning",
-                    "Biometric appointment booking",
-                    "Visa application submission",
-                    "Application tracking and updates",
-                    "Interview preparation (if required)",
-                    "Post-visa travel guidance",
-                    "Visa renewal assistance",
-                    "Family visa applications",
-                    "Business visitor visa support",
-                    "Transit visa assistance",
-                    "Priority processing services"
+                    "University selection and application support",
+                    "German language courses (A1-C1 levels)",
+                    "English proficiency test preparation (IELTS/TOEFL)",
+                    "APS certificate application assistance",
+                    "Blocked account (Sperrkonto) setup guidance",
+                    "Student visa application support",
+                    "Health insurance guidance",
+                    "Accommodation assistance",
+                    "Pre-departure orientation",
+                    "Post-arrival support and registration",
+                    "Job search support after graduation",
+                    "Residence permit extension assistance"
                   ].map((service, index) => (
                     <li key={index} className="flex items-center text-lg">
                       <CheckCircle className="mr-3 flex-shrink-0" size={22} />
@@ -225,19 +223,19 @@ const VisitIreland = () => {
                 viewport={{ once: true }}
                 className="bg-white rounded-2xl shadow-xl p-8 md:p-12"
               >
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">Visa Application Process</h2>
-                <div className="relative border-l-2 border-green-100 pl-6">
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">Application Process</h2>
+                <div className="relative border-l-2 border-yellow-100 pl-6">
                   {[
-                    { icon: ClipboardCheck, title: 'Document Preparation', desc: 'Gather required documents and financial proof' },
-                    { icon: FileText, title: 'Online Application', desc: 'Complete visa application form online' },
-                    { icon: Target, title: 'Biometric Appointment', desc: 'Book and attend biometric collection' },
-                    { icon: ShieldCheck, title: 'Processing & Decision', desc: 'Visa processing and decision notification' },
-                    { icon: Plane, title: 'Visa Collection', desc: 'Collect passport with visa and travel' }
+                    { icon: ClipboardCheck, title: 'University Application', desc: 'Program selection via Uni-Assist or direct application' },
+                    { icon: FileText, title: 'Language Requirements', desc: 'German B2/C1 or IELTS 6.5+ for English programs' },
+                    { icon: Target, title: 'APS Certificate', desc: 'Academic evaluation for Indian students' },
+                    { icon: ShieldCheck, title: 'Student Visa', desc: 'Visa application with blocked account proof' },
+                    { icon: Plane, title: 'Pre-Departure', desc: 'Health insurance, accommodation, and travel arrangements' }
                   ].map((step, idx) => (
                     <div key={idx} className="mb-8 group">
-                      <div className="absolute -left-[11px] mt-2 w-5 h-5 rounded-full bg-green-600 ring-4 ring-green-100 group-hover:scale-110 transition" />
+                      <div className="absolute -left-[11px] mt-2 w-5 h-5 rounded-full bg-yellow-600 ring-4 ring-yellow-100 group-hover:scale-110 transition" />
                       <div className="flex items-start gap-3">
-                        <step.icon className="text-green-600 mt-0.5" size={22} />
+                        <step.icon className="text-yellow-600 mt-0.5" size={22} />
                         <div>
                           <h3 className="text-xl font-semibold">{step.title}</h3>
                           <p className="text-gray-600">{step.desc}</p>
@@ -254,27 +252,25 @@ const VisitIreland = () => {
                 viewport={{ once: true }}
                 className="bg-white rounded-2xl shadow-xl p-8 md:p-12"
               >
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">Requirements & Details</h2>
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">Requirements & Costs</h2>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <h3 className="text-xl font-semibold mb-4 flex items-center"><FileText className="mr-2 text-green-600" size={24} />Required Documents</h3>
+                    <h3 className="text-xl font-semibold mb-4 flex items-center"><FileText className="mr-2 text-yellow-600" size={24} />Academic Requirements</h3>
                     <ul className="space-y-2 text-gray-700">
-                      <li className="flex items-start"><CheckCircle className="text-green-600 mr-2 mt-1" size={18} /><span>Valid passport (6+ months validity)</span></li>
-                      <li className="flex items-start"><CheckCircle className="text-green-600 mr-2 mt-1" size={18} /><span>Completed visa application form</span></li>
-                      <li className="flex items-start"><CheckCircle className="text-green-600 mr-2 mt-1" size={18} /><span>Recent photographs</span></li>
-                      <li className="flex items-start"><CheckCircle className="text-green-600 mr-2 mt-1" size={18} /><span>Financial documents (bank statements)</span></li>
-                      <li className="flex items-start"><CheckCircle className="text-green-600 mr-2 mt-1" size={18} /><span>Travel itinerary and accommodation</span></li>
-                      <li className="flex items-start"><CheckCircle className="text-green-600 mr-2 mt-1" size={18} /><span>Travel insurance (optional but recommended)</span></li>
+                      <li className="flex items-start"><CheckCircle className="text-yellow-600 mr-2 mt-1" size={18} /><span>12+ years of education</span></li>
+                      <li className="flex items-start"><CheckCircle className="text-yellow-600 mr-2 mt-1" size={18} /><span>German B2/C1 or IELTS 6.5+</span></li>
+                      <li className="flex items-start"><CheckCircle className="text-yellow-600 mr-2 mt-1" size={18} /><span>APS Certificate (for Indian students)</span></li>
+                      <li className="flex items-start"><CheckCircle className="text-yellow-600 mr-2 mt-1" size={18} /><span>Academic transcripts</span></li>
+                      <li className="flex items-start"><CheckCircle className="text-yellow-600 mr-2 mt-1" size={18} /><span>Motivation letter</span></li>
                     </ul>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-4 flex items-center"><DollarSign className="mr-2 text-green-600" size={24} />Processing Details</h3>
+                    <h3 className="text-xl font-semibold mb-4 flex items-center"><DollarSign className="mr-2 text-yellow-600" size={24} />Estimated Costs (Annual)</h3>
                     <ul className="space-y-2 text-gray-700">
-                      <li className="flex items-start"><CheckCircle className="text-green-600 mr-2 mt-1" size={18} /><span>Processing Time: 10-15 days</span></li>
-                      <li className="flex items-start"><CheckCircle className="text-green-600 mr-2 mt-1" size={18} /><span>Visa Fee: €60 (approx. ₹5,400)</span></li>
-                      <li className="flex items-start"><CheckCircle className="text-green-600 mr-2 mt-1" size={18} /><span>Validity: Up to 90 days</span></li>
-                      <li className="flex items-start"><CheckCircle className="text-green-600 mr-2 mt-1" size={18} /><span>Stay Duration: Up to 90 days</span></li>
-                      <li className="flex items-start"><CheckCircle className="text-green-600 mr-2 mt-1" size={18} /><span>Single/Multiple entries</span></li>
+                      <li className="flex items-start"><CheckCircle className="text-yellow-600 mr-2 mt-1" size={18} /><span>Tuition: €0 - €1,500 (most public unis free)</span></li>
+                      <li className="flex items-start"><CheckCircle className="text-yellow-600 mr-2 mt-1" size={18} /><span>Living: €8,000 - €12,000</span></li>
+                      <li className="flex items-start"><CheckCircle className="text-yellow-600 mr-2 mt-1" size={18} /><span>Blocked Account: €11,208 (required)</span></li>
+                      <li className="flex items-start"><CheckCircle className="text-yellow-600 mr-2 mt-1" size={18} /><span>Total: €8,000 - €15,000/year</span></li>
                     </ul>
                   </div>
                 </div>
@@ -289,10 +285,10 @@ const VisitIreland = () => {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
                 <div className="divide-y divide-gray-200">
                   {[
-                    { q: 'How long can I stay in Ireland on a visitor visa?', a: 'Visitor visas typically allow stays of up to 90 days, depending on your individual circumstances and the purpose of your visit.' },
-                    { q: 'Do I need to provide biometrics for Ireland visa?', a: 'Yes, most applicants need to provide biometrics (fingerprints and photo) at a Visa Application Centre. This is usually done during the application process.' },
-                    { q: 'Can I work in Ireland on a visitor visa?', a: 'No, visitor visas do not permit work. However, you can attend business meetings, conferences, and training sessions. Any paid work requires a different visa category.' },
-                    { q: 'Can I extend my stay in Ireland?', a: 'You can apply to extend your visitor visa before your authorized stay expires, but approval depends on your circumstances. It\'s best to plan your travel within the initial visa validity.' }
+                    { q: 'Is education really free in Germany?', a: 'Yes, most public universities in Germany charge no tuition fees for both domestic and international students. You only pay a semester contribution of €150-€350 for administrative costs.' },
+                    { q: 'What is APS Certificate?', a: 'APS (Akademische Prüfstelle) is a mandatory academic evaluation for students from India, China, and Vietnam. It verifies your educational credentials before applying to German universities.' },
+                    { q: 'Do I need to know German?', a: 'For English-taught programs, you need IELTS 6.5+. For German-taught programs, you need B2/C1 level German proficiency. Many universities offer preparatory German courses.' },
+                    { q: 'Can I work while studying?', a: 'Yes, international students can work 120 full days or 240 half days per year. After graduation, you can extend your residence permit for 18 months to find a job.' }
                   ].map((item, idx) => (
                     <div key={idx} className="py-4">
                       <button
@@ -301,7 +297,7 @@ const VisitIreland = () => {
                         className="w-full flex items-center justify-between text-left"
                       >
                         <span className="font-semibold text-gray-900">{item.q}</span>
-                        <span className="text-green-600">{openFaqIndex === idx ? '-' : '+'}</span>
+                        <span className="text-yellow-600">{openFaqIndex === idx ? '-' : '+'}</span>
                       </button>
                       {openFaqIndex === idx && (
                         <p className="mt-2 text-gray-600">{item.a}</p>
@@ -318,14 +314,14 @@ const VisitIreland = () => {
                   <div className="relative mb-4">
                     <img
                       src="/services/study_visa.jpg"
-                      alt="Ireland Visit Visa Expert"
-                      className="w-full h-40 rounded-xl object-cover ring-4 ring-green-50"
+                      alt="Germany Study Expert"
+                      className="w-full h-40 rounded-xl object-cover ring-4 ring-yellow-50"
                     />
                   </div>
-                  <h3 className="text-xl font-bold mb-2">Talk to an Ireland Visa Expert</h3>
-                  <p className="text-gray-600 mb-4">Get a free visa consultation within 24 hours.</p>
+                  <h3 className="text-xl font-bold mb-2">Talk to a Germany Study Expert</h3>
+                  <p className="text-gray-600 mb-4">Get a free profile evaluation within 24 hours.</p>
                   <div className="flex flex-col gap-3">
-                    <button onClick={handleScrollToAssessment} className="bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-500 transition flex items-center justify-center">
+                    <button onClick={handleScrollToAssessment} className="bg-yellow-600 text-white py-3 rounded-lg font-semibold hover:bg-yellow-500 transition flex items-center justify-center">
                       <ClipboardCheck size={18} className="mr-2" />
                       Free Assessment
                     </button>
@@ -336,13 +332,13 @@ const VisitIreland = () => {
                   <h4 className="font-semibold mb-3">Quick Requirements</h4>
                   <ul className="space-y-3 text-sm text-gray-700">
                     {[
-                      'Valid passport (6+ months)',
-                      'Online application form',
-                      'Financial proof',
-                      'Travel itinerary',
-                      'Biometric appointment'
+                      '12+ years of education',
+                      'German B2/C1 or IELTS 6.5+',
+                      'APS Certificate (India)',
+                      'Blocked Account €11,208',
+                      'Student Visa'
                     ].map((pt, i) => (
-                      <li key={i} className="flex items-start"><CheckCircle size={16} className="text-green-600 mr-2 mt-0.5" />{pt}</li>
+                      <li key={i} className="flex items-start"><CheckCircle size={16} className="text-yellow-600 mr-2 mt-0.5" />{pt}</li>
                     ))}
                   </ul>
                 </div>
@@ -352,7 +348,7 @@ const VisitIreland = () => {
         </div>
       </section>
 
-      <section id="assessment" className="py-16 md:py-24 bg-gradient-to-br from-slate-900 via-green-900 to-emerald-900">
+      <section id="assessment" className="py-16 md:py-24 bg-gradient-to-br from-slate-900 via-yellow-900 to-amber-800">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8 items-stretch">
@@ -363,10 +359,10 @@ const VisitIreland = () => {
                 className="order-2 md:order-1 bg-white rounded-xl shadow-lg p-6 md:p-8"
               >
                 <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
-                  Start Your Ireland Visit Journey
+                  Start Your Germany Study Journey
                 </h2>
                 <p className="text-gray-600 mb-6">
-                  Fill out the form below for a free visa assessment
+                  Fill out the form below for a free study assessment
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-5">
@@ -377,7 +373,7 @@ const VisitIreland = () => {
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent transition"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition"
                       placeholder="Enter your full name"
                     />
                   </div>
@@ -389,7 +385,7 @@ const VisitIreland = () => {
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent transition"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition"
                       placeholder="your.email@example.com"
                     />
                   </div>
@@ -401,20 +397,20 @@ const VisitIreland = () => {
                       required
                       value={formData.phone}
                       onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent transition"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition"
                       placeholder="Your phone number"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Message / Purpose of Visit</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">Message / Preferred Program</label>
                     <textarea
                       required
                       value={formData.message}
                       onChange={(e) => setFormData({...formData, message: e.target.value})}
                       rows={4}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent transition"
-                      placeholder="Tell us about your travel plans, purpose of visit, and any questions..."
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition"
+                      placeholder="Tell us about your academic background, preferred field of study, and any questions..."
                     ></textarea>
                   </div>
 
@@ -442,8 +438,8 @@ const VisitIreland = () => {
                 <div className="mt-6 pt-6 border-t border-gray-200">
                   <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-gray-600">
                     <div className="flex items-center">
-                      <Mail className="mr-2 text-green-600" size={20} />
-                      <a href="mailto:info@billiondreamsrunway.in" className="hover:text-green-600 transition-colors">info@billiondreamsrunway.in</a>
+                      <Mail className="mr-2 text-yellow-600" size={20} />
+                      <a href="mailto:info@billiondreamsrunway.in" className="hover:text-yellow-600 transition-colors">info@billiondreamsrunway.in</a>
                     </div>
                   </div>
                 </div>
@@ -452,7 +448,7 @@ const VisitIreland = () => {
               <div className="order-1 md:order-2">
                 <img
                   src="/services/study_visa.jpg"
-                  alt="Visit Ireland visa consultation"
+                  alt="Study in Germany consultation"
                   className="w-full h-56 md:h-full rounded-xl object-cover shadow-lg"
                 />
               </div>
@@ -464,5 +460,5 @@ const VisitIreland = () => {
   );
 };
 
-export default VisitIreland;
+export default StudyGermany;
 

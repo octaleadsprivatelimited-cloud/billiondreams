@@ -104,13 +104,16 @@ const Contact: React.FC = () => {
             {/* Hero Section */}
       <section className="relative py-12 md:py-16 overflow-hidden bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600">
         {/* Background Image */}
-        <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0">
           <img
-            src="/home/slider-1.jpg"
+            src="/hero-background.avif"
             alt="Contact Background"
-            className="w-full h-full object-cover object-top"
+            className="w-full h-full object-cover"
+            style={{ imageRendering: 'high-quality' }}
           />
         </div>
+        {/* Black overlay */}
+        <div className="absolute inset-0 bg-black/70"></div>
 
         <div className="container mx-auto px-4 relative z-10">
           <motion.div

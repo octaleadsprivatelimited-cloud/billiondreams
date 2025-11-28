@@ -20,11 +20,45 @@ const Hero: React.FC = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   const sliderImages = [
-    '/home/slider-1.jpg',
-    '/services/study_visa.jpg'
+    {
+      url: '/home/hero-1.avif',
+      mobilePosition: 'center center'
+    },
+    {
+      url: '/home/hero-2.avif',
+      mobilePosition: 'center center'
+    },
+    {
+      url: '/home/hero-3.avif',
+      mobilePosition: 'center center'
+    }
   ] as const;
+
+  // Preload images
+  useEffect(() => {
+    let loadedCount = 0;
+    const totalImages = sliderImages.length;
+
+    sliderImages.forEach((slide) => {
+      const img = new Image();
+      img.onload = () => {
+        loadedCount++;
+        if (loadedCount === totalImages) {
+          setImagesLoaded(true);
+        }
+      };
+      img.onerror = () => {
+        loadedCount++;
+        if (loadedCount === totalImages) {
+          setImagesLoaded(true);
+        }
+      };
+      img.src = slide.url;
+    });
+  }, []);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -38,12 +72,14 @@ const Hero: React.FC = () => {
   }, []);
 
   useEffect(() => {
+    if (sliderImages.length === 0 || !imagesLoaded) return;
+    
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % sliderImages.length);
     }, 5000);
 
     return () => clearInterval(timer);
-  }, [sliderImages.length]);
+  }, [sliderImages.length, imagesLoaded]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -87,43 +123,49 @@ const Hero: React.FC = () => {
   ];
 
   return (
-    <section className="relative min-h-screen overflow-hidden pt-14 md:pt-20 lg:pt-24 pb-12 md:pb-16 lg:pb-20">
+    <section className="relative h-[600px] md:h-[650px] lg:h-[700px] overflow-hidden pt-14 md:pt-16 lg:pt-20 pb-8 md:pb-10 lg:pb-12">
       {/* Background Image Slider */}
       <div className="absolute inset-0 bg-black">
-        {sliderImages.map((image, index) => {
-          // Slider 1 (index 0): 70% right, Slider 2 (index 1): center top
+        {sliderImages.map((slide, index) => {
           const getMobilePosition = () => {
-            if (index === 0) return '70% center'; // slider-1.jpg - right
-            return 'center top'; // study_visa.jpg - student image at top
+            if (isMobile) {
+              return slide.mobilePosition;
+            }
+            return 'center';
           };
 
+          const isActive = currentSlide === index;
+          
           return (
             <motion.div
-              key={`${image}-${index}`}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: currentSlide === index ? 1 : 0 }}
+              key={`${slide.url}-${index}`}
+              initial={{ opacity: index === 0 ? 1 : 0 }}
+              animate={{ opacity: isActive ? 1 : 0 }}
               transition={{ duration: 1, ease: "easeInOut" }}
               className="absolute inset-0"
+              style={{ 
+                zIndex: isActive ? 1 : 0,
+                pointerEvents: isActive ? 'auto' : 'none'
+              }}
             >
               <div 
-                key={image}
-                className="w-full h-full bg-cover"
+                className="w-full h-full bg-cover bg-center"
                 style={{
-                  backgroundImage: `url(${image})`,
-                  backgroundPosition: isMobile ? getMobilePosition() : 'center',
+                  backgroundImage: `url(${slide.url})`,
+                  backgroundPosition: getMobilePosition(),
                   backgroundSize: 'cover',
                   backgroundRepeat: 'no-repeat'
                 }}
               ></div>
               {/* Dark overlay for text readability */}
-              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/40"></div>
+              <div className="absolute inset-0 bg-black/70"></div>
             </motion.div>
           );
         })}
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 gap-8 lg:gap-12 items-center pt-[50%] md:pt-32 lg:pt-40">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 h-full flex items-center">
+        <div className="grid grid-cols-1 gap-6 lg:gap-8 items-center w-full">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -139,7 +181,7 @@ const Hero: React.FC = () => {
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight"
             >
               <span className="text-white drop-shadow-2xl">
-                Your Dream Destination
+                Your Path to Global Success
               </span>
             </motion.h1>
 
@@ -148,13 +190,9 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.3 }}
-              className="text-base sm:text-lg md:text-xl text-white/95 mb-6 md:mb-8 lg:mb-10 leading-relaxed max-w-2xl mx-auto font-medium drop-shadow-lg"
+              className="text-base sm:text-lg md:text-xl text-white/95 mb-4 md:mb-6 lg:mb-8 leading-relaxed max-w-2xl mx-auto font-medium drop-shadow-lg"
             >
-              Transform your education dreams into reality with{' '}
-              <span className="font-bold text-yellow-300">
-                expert education guidance
-              </span>{' '}
-              & study abroad services
+              Welcome to <span className="font-bold text-yellow-300">Billion Dreams Runway</span>, your trusted partner in shaping successful international academic careers. We guide students toward top universities across the globe, offering expert counselling, seamless processes, and reliable support at every step of their study-abroad journey.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -162,7 +200,7 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.4 }}
-              className="flex flex-row gap-2 md:gap-4 justify-center mb-8 md:mb-10 lg:mb-12"
+              className="flex flex-row gap-2 md:gap-4 justify-center mb-6 md:mb-8 lg:mb-10"
             >
               <Link
                 to="/lets-start-your-journey"

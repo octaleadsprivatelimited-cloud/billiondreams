@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Globe, CheckCircle, Mail, ArrowRight, Award, TrendingUp, Plane, FileText, ClipboardCheck, ShieldCheck, Target, Briefcase, DollarSign, Users, MapPin } from 'lucide-react';
+import { CheckCircle, Mail, ArrowRight, Plane, FileText, ClipboardCheck, ShieldCheck, Target, Briefcase, DollarSign, Users, MapPin } from 'lucide-react';
 
 const MigrateAustralia = () => {
   const [formData, setFormData] = useState({
@@ -44,8 +44,16 @@ const MigrateAustralia = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       <section className="relative h-[520px] flex items-center overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/home/slider-3.jpg')] bg-cover bg-center" />
-        <div className="absolute inset-0 bg-gradient-to-r from-yellow-900/90 via-orange-900/80 to-blue-900/80"></div>
+        {/* Country Flag Background */}
+        <div className="absolute inset-0 bg-white">
+          <img 
+            src="https://flagcdn.com/w1280/au.png" 
+            alt="Australia Flag" 
+            className="w-full h-full object-cover"
+            style={{ imageRendering: 'high-quality' }}
+          />
+        </div>
+        <div className="absolute inset-0 bg-black/50"></div>
 
         <div className="relative z-10 container mx-auto px-4 w-full">
           <div className="max-w-6xl mx-auto">

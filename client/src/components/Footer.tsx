@@ -11,6 +11,7 @@ import {
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({});
+  const [logoLoaded, setLogoLoaded] = useState(false);
 
   const toggleSection = (section: string) => {
     setOpenSections(prev => ({
@@ -85,7 +86,19 @@ const Footer: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-8">
             {/* Company Info - 2 cols on large screens */}
             <div className="lg:col-span-2">
-              <h3 className="text-white text-lg md:text-2xl font-bold mb-4 md:mb-6">Billion Dreams Runway</h3>
+              <Link to="/" className="inline-block mb-4 md:mb-6">
+                <img 
+                  src="/logo.png" 
+                  alt="Billion Dreams Runway Logo" 
+                  className="h-12 md:h-16 w-auto object-contain max-w-[180px] md:max-w-[220px]"
+                  style={{ display: logoLoaded ? 'block' : 'none' }}
+                  onLoad={() => setLogoLoaded(true)}
+                  onError={() => setLogoLoaded(false)}
+                />
+                {!logoLoaded && (
+                  <h3 className="text-white text-lg md:text-2xl font-bold">Billion Dreams Runway</h3>
+                )}
+              </Link>
               <p className="text-slate-400 mb-4 md:mb-6 leading-relaxed text-xs md:text-sm">
                 Your trusted partner for overseas education consultancy. 
                 We help students achieve their dreams of studying abroad 

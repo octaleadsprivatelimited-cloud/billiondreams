@@ -26,10 +26,16 @@ import StudyUSA from './pages/StudyUSA';
 import StudyUK from './pages/StudyUK';
 import StudyCanada from './pages/StudyCanada';
 import StudyAustralia from './pages/StudyAustralia';
-import StudyNetherlands from './pages/StudyNetherlands';
 import StudyNewZealand from './pages/StudyNewZealand';
-import StudyPoland from './pages/StudyPoland';
 import StudyMalaysia from './pages/StudyMalaysia';
+import StudyGermany from './pages/StudyGermany';
+import StudyFrance from './pages/StudyFrance';
+import StudyItaly from './pages/StudyItaly';
+import StudyIreland from './pages/StudyIreland';
+import StudySweden from './pages/StudySweden';
+import StudyFinland from './pages/StudyFinland';
+import StudySpain from './pages/StudySpain';
+import StudySwitzerland from './pages/StudySwitzerland';
 import VisitUSA from './pages/VisitUSA';
 import VisitUK from './pages/VisitUK';
 import VisitCanada from './pages/VisitCanada';
@@ -46,6 +52,16 @@ import CoachingIELTS from './pages/CoachingIELTS';
 import CoachingTOEFL from './pages/CoachingTOEFL';
 import CoachingPTE from './pages/CoachingPTE';
 import CoachingDuolingo from './pages/CoachingDuolingo';
+import WorkPermitEligibility from './pages/WorkPermitEligibility';
+import WorkPermitDocuments from './pages/WorkPermitDocuments';
+import WorkPermitStrategy from './pages/WorkPermitStrategy';
+import WorkPermitSubmission from './pages/WorkPermitSubmission';
+import WorkPermitEmployer from './pages/WorkPermitEmployer';
+import WorkPermitTracking from './pages/WorkPermitTracking';
+import WorkPermitPostApproval from './pages/WorkPermitPostApproval';
+import WorkPermitRenewal from './pages/WorkPermitRenewal';
+import WorkPermitAdditional from './pages/WorkPermitAdditional';
+import WorkPermitServices from './pages/WorkPermitServices';
 
 function App() {
   return (
@@ -80,10 +96,16 @@ function App() {
             <Route path="/study-uk" element={<StudyUK />} />
             <Route path="/study-canada" element={<StudyCanada />} />
             <Route path="/study-australia" element={<StudyAustralia />} />
-            <Route path="/study-netherlands" element={<StudyNetherlands />} />
             <Route path="/study-new-zealand" element={<StudyNewZealand />} />
-            <Route path="/study-poland" element={<StudyPoland />} />
             <Route path="/study-malaysia" element={<StudyMalaysia />} />
+            <Route path="/study-germany" element={<StudyGermany />} />
+            <Route path="/study-france" element={<StudyFrance />} />
+            <Route path="/study-italy" element={<StudyItaly />} />
+            <Route path="/study-ireland" element={<StudyIreland />} />
+            <Route path="/study-sweden" element={<StudySweden />} />
+            <Route path="/study-finland" element={<StudyFinland />} />
+            <Route path="/study-spain" element={<StudySpain />} />
+            <Route path="/study-switzerland" element={<StudySwitzerland />} />
             
             {/* Country Visit Pages */}
             <Route path="/visit-usa" element={<VisitUSA />} />
@@ -104,6 +126,18 @@ function App() {
             <Route path="/coaching-toefl" element={<CoachingTOEFL />} />
             <Route path="/coaching-pte" element={<CoachingPTE />} />
             <Route path="/coaching-duolingo" element={<CoachingDuolingo />} />
+            
+            {/* Work Permit Services Pages */}
+            <Route path="/work-permit-services" element={<WorkPermitServices />} />
+            <Route path="/work-permit-eligibility" element={<WorkPermitEligibility />} />
+            <Route path="/work-permit-documents" element={<WorkPermitDocuments />} />
+            <Route path="/work-permit-strategy" element={<WorkPermitStrategy />} />
+            <Route path="/work-permit-submission" element={<WorkPermitSubmission />} />
+            <Route path="/work-permit-employer" element={<WorkPermitEmployer />} />
+            <Route path="/work-permit-tracking" element={<WorkPermitTracking />} />
+            <Route path="/work-permit-post-approval" element={<WorkPermitPostApproval />} />
+            <Route path="/work-permit-renewal" element={<WorkPermitRenewal />} />
+            <Route path="/work-permit-additional" element={<WorkPermitAdditional />} />
             
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />

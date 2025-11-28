@@ -16,9 +16,9 @@ const Services: React.FC = () => {
   const services = [
     {
       icon: GraduationCap,
-      title: 'Overseas Education',
-      description: 'Complete study abroad solutions from university selection to visa processing with expert guidance.',
-      features: ['University Selection', 'Course Selection', 'Application Support', 'Scholarship Guidance'],
+      title: 'A. Career & Education Counselling',
+      description: 'Expert guidance to map your ambition to the right country, course, and career outcome.',
+      features: ['Academic profile assessment', 'Country & course selection guidance', 'Career pathway planning'],
       image: '/services/study_visa.jpg',
       link: '/services-overseas-education',
       gradient: 'from-blue-500 to-cyan-500',
@@ -27,35 +27,57 @@ const Services: React.FC = () => {
     },
     {
       icon: Award,
-      title: 'Coaching',
-      description: 'Expert test preparation and academic coaching for all standardized tests and academic goals.',
-      features: ['IELTS/TOEFL/PTE/Duolingo', 'GRE/GMAT/SAT', 'Academic Coaching', 'Career Counseling'],
+      title: 'B. University Selection & Applications',
+      description: 'Everything you need to deliver standout applications and secure admits to top universities.',
+      features: ['University shortlisting', 'SOP, LOR & resume guidance', 'Application form assistance', 'Scholarship & financial aid guidance'],
       image: '/services/study_visa.jpg',
-      link: '/services-coaching',
+      link: '/services-overseas-education',
       gradient: 'from-emerald-500 to-teal-500',
       iconBg: 'bg-gradient-to-br from-emerald-500 to-teal-500',
       successRate: '98%'
     },
     {
       icon: Users,
-      title: 'Immigration',
-      description: 'Comprehensive immigration and visa assistance services for skilled migration and family reunification.',
-      features: ['Skilled Migration', 'Work Visas', 'Family Visas', 'Business Immigration'],
+      title: 'C. Test Preparation',
+      description: 'Coach-led preparation for the world\'s most trusted admissions exams.',
+      features: ['IELTS / TOEFL coaching', 'PTE preparation', 'SAT / GRE / GMAT guidance'],
       image: '/services/study_visa.jpg',
-      link: '/services-immigration',
+      link: '/services-coaching',
       gradient: 'from-pink-500 to-rose-500',
       iconBg: 'bg-gradient-to-br from-pink-500 to-rose-500',
       successRate: '98%'
     },
     {
-      icon: CheckCircle,
-      title: 'Virtual Training and Counselling',
-      description: 'Online counseling and training programs with flexible scheduling and interactive sessions.',
-      features: ['Online Counseling', 'Virtual Training', 'Webinars & Workshops', 'E-Learning Platform'],
+      icon: Shield,
+      title: 'D. Visa Assistance',
+      description: 'Confident visa filing backed by meticulous documentation checks and expert guidance.',
+      features: ['Visa documentation & filing', 'Mock visa interviews', 'Financial document preparation'],
       image: '/services/study_visa.jpg',
-      link: '/services-virtual-training',
+      link: '/services-immigration',
       gradient: 'from-purple-500 to-indigo-500',
       iconBg: 'bg-gradient-to-br from-purple-500 to-indigo-500',
+      successRate: '98%'
+    },
+    {
+      icon: Globe,
+      title: 'E. Pre-Departure Support',
+      description: 'Smooth departures with practical planning for life abroad.',
+      features: ['Travel & accommodation assistance', 'Cultural orientation', 'Forex & insurance guidance'],
+      image: '/services/study_visa.jpg',
+      link: '/services-virtual-training',
+      gradient: 'from-orange-500 to-red-500',
+      iconBg: 'bg-gradient-to-br from-orange-500 to-red-500',
+      successRate: '98%'
+    },
+    {
+      icon: CheckCircle,
+      title: 'F. Post-Arrival Support (Where Available)',
+      description: 'Extended care so students feel at home faster in their new destination.',
+      features: ['Airport pickup arrangements', 'Housing support', 'Local guidance for settling in'],
+      image: '/services/study_visa.jpg',
+      link: '/comprehensive-education-solutions',
+      gradient: 'from-amber-500 to-yellow-500',
+      iconBg: 'bg-gradient-to-br from-amber-500 to-yellow-500',
       successRate: '98%'
     }
   ];
@@ -93,13 +115,16 @@ const Services: React.FC = () => {
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600">
         {/* Background Image */}
-        <div className="absolute inset-0 opacity-30">
+        <div className="absolute inset-0">
           <img
-            src="/home/slider-1.jpg"
+            src="/hero-background.avif"
             alt="Services Background"
-            className="w-full h-full object-cover object-top"
+            className="w-full h-full object-cover"
+            style={{ imageRendering: 'high-quality' }}
           />
         </div>
+        {/* Black overlay */}
+        <div className="absolute inset-0 bg-black/70"></div>
 
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -260,7 +285,7 @@ const Services: React.FC = () => {
                     
                     {/* Features List */}
                     <div className="space-y-2 mb-4">
-                      {service.features.slice(0, 3).map((feature, idx) => (
+                      {service.features.map((feature, idx) => (
                         <div key={idx} className="flex items-center text-sm text-gray-600">
                           <div className="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
                             <CheckCircle size={12} className="text-green-600" />

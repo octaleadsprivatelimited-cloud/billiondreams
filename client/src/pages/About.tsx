@@ -10,7 +10,9 @@ import {
   Sparkles,
   Shield,
   Award,
-  Star
+  Star,
+  Eye,
+  ListChecks
 } from 'lucide-react';
 
 const About: React.FC = () => {
@@ -101,15 +103,18 @@ const About: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50">
             {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600">
+      <section className="relative py-12 overflow-hidden bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600">
         {/* Background Image */}
-        <div className="absolute inset-0 opacity-30">
+        <div className="absolute inset-0">
           <img
-            src="/home/slider-1.jpg"
+            src="/hero-background.avif"
             alt="About Background"
-            className="w-full h-full object-cover object-top"
+            className="w-full h-full object-cover"
+            style={{ imageRendering: 'high-quality' }}
           />
         </div>
+        {/* Black overlay */}
+        <div className="absolute inset-0 bg-black/70"></div>
 
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -122,11 +127,11 @@ const About: React.FC = () => {
               <Sparkles className="w-5 h-5 mr-2" />
               About Billion Dreams Runway
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            <h1 className="text-3xl md:text-4xl font-bold mb-4">
               Your Trusted <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Education Partner</span>
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto mb-8">
-              We are a leading overseas education consultancy dedicated to helping students achieve their dreams of studying at top universities worldwide.
+            <p className="text-base md:text-lg text-blue-100 max-w-4xl mx-auto mb-6">
+              <strong>Billion Dreams Runway</strong> is a premier advisory service dedicated to helping students fulfill their dream of global education. With a team of experienced counsellors, certified advisors, and international education experts, we provide personalised guidance tailored to academic goals, financial budgets, and future aspirations.
             </p>
             <div className="flex flex-row gap-2 md:gap-4 justify-center">
               <a
@@ -147,45 +152,329 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 bg-white/80 backdrop-blur-sm">
+      {/* Mission & Vision Section */}
+      <section className="py-16 md:py-20 relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="max-w-7xl mx-auto"
           >
-            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-700 rounded-full text-sm font-semibold mb-4">
-              <Sparkles className="w-4 h-4 mr-2" />
-              Why Choose Us
+            {/* Header */}
+            <div className="text-center mb-12">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full text-sm font-semibold mb-6 shadow-lg shadow-blue-500/30"
+              >
+                <Target className="w-4 h-4 mr-2" />
+                Mission & Vision
+              </motion.div>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-800 bg-clip-text text-transparent mb-6">
+                Our Mission & Vision
+              </h2>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-800 bg-clip-text text-transparent mb-6">
-              Excellence in Every <span className="text-blue-600">Service</span>
+
+            {/* Mission & Vision Cards - Side by Side */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+              {/* Mission Card */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="relative group"
+              >
+                <div className="relative bg-white rounded-3xl p-6 md:p-8 lg:p-10 shadow-xl border border-gray-100 overflow-hidden h-full">
+                  {/* Decorative gradient background */}
+                  <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-blue-100/50 to-indigo-100/50 rounded-full blur-3xl -mr-24 -mt-24"></div>
+                  <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-purple-100/50 to-pink-100/50 rounded-full blur-3xl -ml-24 -mb-24"></div>
+                  
+                  {/* Content */}
+                  <div className="relative z-10">
+                    <div className="flex items-start gap-4 md:gap-6 mb-4">
+                      {/* Icon */}
+                      <div className="flex-shrink-0">
+                        <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-500/30 group-hover:scale-110 transition-transform duration-300">
+                          <Target className="w-7 h-7 md:w-8 md:h-8 text-white" />
+                        </div>
+                      </div>
+                      
+                      {/* Title */}
+                      <div>
+                        <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">Our Mission</h3>
+                      </div>
+                    </div>
+                    
+                    {/* Text */}
+                    <p className="text-base md:text-lg text-gray-800 leading-relaxed">
+                      To simplify international admissions through <span className="text-blue-600 font-semibold">transparency</span>, <span className="text-indigo-600 font-semibold">expertise</span>, and <span className="text-purple-600 font-semibold">end-to-end support</span>.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Vision Card */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7, delay: 0.3 }}
+                viewport={{ once: true }}
+                className="relative group"
+              >
+                <div className="relative bg-white rounded-3xl p-6 md:p-8 lg:p-10 shadow-xl border border-gray-100 overflow-hidden h-full">
+                  {/* Decorative gradient background */}
+                  <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-purple-100/50 to-pink-100/50 rounded-full blur-3xl -mr-24 -mt-24"></div>
+                  <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-indigo-100/50 to-blue-100/50 rounded-full blur-3xl -ml-24 -mb-24"></div>
+                  
+                  {/* Content */}
+                  <div className="relative z-10">
+                    <div className="flex items-start gap-4 md:gap-6 mb-4">
+                      {/* Icon */}
+                      <div className="flex-shrink-0">
+                        <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center shadow-lg shadow-purple-500/30 group-hover:scale-110 transition-transform duration-300">
+                          <Eye className="w-7 h-7 md:w-8 md:h-8 text-white" />
+                        </div>
+                      </div>
+                      
+                      {/* Title */}
+                      <div>
+                        <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">Our Vision</h3>
+                      </div>
+                    </div>
+                    
+                    {/* Text */}
+                    <p className="text-base md:text-lg text-gray-800 leading-relaxed">
+                      To become the most trusted and preferred education consultancy, empowering students worldwide to achieve their academic dreams and build successful global careers through innovative solutions and unwavering commitment to excellence.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Features Section - Our Strengths */}
+      <section className="py-16 md:py-20 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12 md:mb-16"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-full text-sm font-semibold mb-6 shadow-lg shadow-indigo-500/30"
+            >
+              <Sparkles className="w-4 h-4 mr-2" />
+              Our Strengths
+            </motion.div>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-800 bg-clip-text text-transparent mb-3">
+              Our <span className="text-blue-600">Strengths</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We combine expertise, technology, and personalized service to make your study abroad journey smooth and successful.
+            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
+              What sets us apart in helping you achieve your study abroad dreams.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
+          {/* Strengths Grid - Responsive layout for 5 items */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6 max-w-7xl mx-auto">
+            {[
+              {
+                icon: Users,
+                title: 'Expert Counsellors',
+                description: 'Expert counsellors with years of experience',
+                gradient: 'from-green-500 to-emerald-600',
+                iconBg: 'bg-gradient-to-br from-green-500 to-emerald-600',
+                shadow: 'shadow-green-500/20'
+              },
+              {
+                icon: Globe,
+                title: 'Global Partnerships',
+                description: 'Strong global university partnerships',
+                gradient: 'from-blue-500 to-cyan-600',
+                iconBg: 'bg-gradient-to-br from-blue-500 to-cyan-600',
+                shadow: 'shadow-blue-500/20'
+              },
+              {
+                icon: Award,
+                title: 'High Success Rate',
+                description: 'High visa success rate',
+                gradient: 'from-amber-500 to-yellow-600',
+                iconBg: 'bg-gradient-to-br from-amber-500 to-yellow-600',
+                shadow: 'shadow-amber-500/20'
+              },
+              {
+                icon: Heart,
+                title: 'Ethical Guidance',
+                description: 'Ethical, student-first guidance',
+                gradient: 'from-red-500 to-pink-600',
+                iconBg: 'bg-gradient-to-br from-red-500 to-pink-600',
+                shadow: 'shadow-red-500/20'
+              },
+              {
+                icon: Target,
+                title: 'Customised Plans',
+                description: 'Fully customised study plans',
+                gradient: 'from-purple-500 to-indigo-600',
+                iconBg: 'bg-gradient-to-br from-purple-500 to-indigo-600',
+                shadow: 'shadow-purple-500/20'
+              }
+            ].map((strength, index) => (
               <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
+                key={strength.title}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group text-center p-8 rounded-2xl bg-white/60 backdrop-blur-sm border border-white/50 hover:bg-white/80 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className="group relative"
               >
-                <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <feature.icon className={`w-8 h-8 ${feature.color}`} />
+                <div className="h-full bg-white rounded-2xl p-6 md:p-8 border border-gray-100 hover:border-transparent shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
+                  {/* Gradient background on hover */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${strength.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl`}></div>
+                  
+                  {/* Content */}
+                  <div className="relative z-10">
+                    {/* Icon */}
+                    <div className="mb-6">
+                      <div className={`w-16 h-16 md:w-20 md:h-20 ${strength.iconBg} rounded-2xl flex items-center justify-center shadow-lg ${strength.shadow} group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
+                        <strength.icon className="w-8 h-8 md:w-10 md:h-10 text-white" />
+                      </div>
+                    </div>
+                    
+                    {/* Title */}
+                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 group-hover:text-gray-800 transition-colors">
+                      {strength.title}
+                    </h3>
+                    
+                    {/* Description */}
+                    <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                      {strength.description}
+                    </p>
+                  </div>
+                  
+                  {/* Decorative corner element */}
+                  <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br ${strength.gradient} opacity-0 group-hover:opacity-10 rounded-bl-full transition-opacity duration-300`}></div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Objectives Section */}
+      <section className="py-16 md:py-20 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12 md:mb-16"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-full text-sm font-semibold mb-6 shadow-lg shadow-indigo-500/30"
+            >
+              <ListChecks className="w-4 h-4 mr-2" />
+              Objectives of the Consultancy
+            </motion.div>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-800 bg-clip-text text-transparent mb-4">
+              Objectives of the <span className="text-blue-600">Consultancy</span>
+            </h2>
+            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
+              Our commitment to excellence and student success
+            </p>
+          </motion.div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[
+                {
+                  icon: Shield,
+                  title: 'Accurate & Ethical Guidance',
+                  description: 'To provide accurate and ethical education guidance',
+                  gradient: 'from-blue-500 to-cyan-600',
+                  iconBg: 'bg-gradient-to-br from-blue-500 to-cyan-600',
+                  shadow: 'shadow-blue-500/20'
+                },
+                {
+                  icon: Globe,
+                  title: 'Right Global Opportunities',
+                  description: 'To support students in choosing the right global opportunities',
+                  gradient: 'from-emerald-500 to-teal-600',
+                  iconBg: 'bg-gradient-to-br from-emerald-500 to-teal-600',
+                  shadow: 'shadow-emerald-500/20'
+                },
+                {
+                  icon: Star,
+                  title: 'Personalised Service',
+                  description: 'To enhance student success through personalised service',
+                  gradient: 'from-amber-500 to-yellow-600',
+                  iconBg: 'bg-gradient-to-br from-amber-500 to-yellow-600',
+                  shadow: 'shadow-amber-500/20'
+                },
+                {
+                  icon: Heart,
+                  title: 'Long-Term Trust',
+                  description: 'To establish long-term trust and strong client relationships',
+                  gradient: 'from-pink-500 to-rose-600',
+                  iconBg: 'bg-gradient-to-br from-pink-500 to-rose-600',
+                  shadow: 'shadow-pink-500/20'
+                }
+              ].map((objective, index) => (
+                <motion.div
+                  key={objective.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="group relative"
+                >
+                  <div className="h-full bg-white rounded-2xl p-6 md:p-8 border border-gray-100 hover:border-transparent shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
+                    {/* Gradient background on hover */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${objective.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl`}></div>
+                    
+                    {/* Content */}
+                    <div className="relative z-10">
+                      {/* Icon */}
+                      <div className="mb-4">
+                        <div className={`w-14 h-14 md:w-16 md:h-16 ${objective.iconBg} rounded-2xl flex items-center justify-center shadow-lg ${objective.shadow} group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
+                          <objective.icon className="w-7 h-7 md:w-8 md:h-8 text-white" />
+                        </div>
+                      </div>
+                      
+                      {/* Title */}
+                      <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 group-hover:text-gray-800 transition-colors">
+                        {objective.title}
+                      </h3>
+                      
+                      {/* Description */}
+                      <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                        {objective.description}
+                      </p>
+                    </div>
+                    
+                    {/* Decorative corner element */}
+                    <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br ${objective.gradient} opacity-0 group-hover:opacity-10 rounded-bl-full transition-opacity duration-300`}></div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -216,10 +505,10 @@ const About: React.FC = () => {
               <Heart className="w-5 h-5 mr-2" />
               Our Core Values
             </div>
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
               What Drives <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Us Forward</span>
             </h2>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg text-white/90 max-w-3xl mx-auto">
               Our values are the foundation of everything we do. They guide our decisions and shape our commitment to excellence.
             </p>
           </motion.div>
@@ -244,10 +533,10 @@ const About: React.FC = () => {
                       <value.icon size={32} className="text-white" />
                     </div>
                     
-                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
+                    <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
                       {value.title}
                     </h3>
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="text-sm md:text-base text-gray-600 leading-relaxed">
                       {value.description}
                     </p>
                   </div>
