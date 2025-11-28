@@ -1,8 +1,14 @@
 import React from 'react';
 
 const WhatsAppButton: React.FC = () => {
+  const phoneNumber = '919030573605';
+  const defaultMessage = encodeURIComponent(
+    'Hello Billion Dreams Runway, I would like to know more about your services.'
+  );
+
   const handleWhatsAppClick = () => {
-    // WhatsApp handler removed
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${defaultMessage}`;
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
   };
 
   // Official WhatsApp Logo SVG - Smaller size
