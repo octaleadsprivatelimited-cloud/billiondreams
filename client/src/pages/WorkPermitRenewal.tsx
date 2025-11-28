@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle, Mail, ClipboardCheck, RefreshCw, FileText, AlertCircle, ShieldCheck, Clock } from 'lucide-react';
+import { CheckCircle, ClipboardCheck, RefreshCw, FileText, AlertCircle, Clock } from 'lucide-react';
 
 const WorkPermitRenewal = () => {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
@@ -38,7 +38,6 @@ const WorkPermitRenewal = () => {
             src="/hero-background.avif"
             alt="Background"
             className="w-full h-full object-cover"
-            style={{ imageRendering: 'high-quality' }}
           />
         </div>
         <div className="absolute inset-0 bg-black/70"></div>
