@@ -64,7 +64,7 @@ const TermsOfService: React.FC = () => {
             <p>We may modify these terms at any time. Continued use of our services constitutes acceptance of modified terms.</p>
 
             <h2>10. Contact</h2>
-            <p>For questions about these terms, contact us at <a href="mailto:info@billiondreamsrunway.in" className="text-blue-600 hover:underline">info@billiondreamsrunway.in</a>.</p>
+            <p>For questions about these terms, contact us at <a href="tel:+919030573605" className="text-blue-600 hover:underline">+91-9030573605</a>.</p>
           </div>
         </div>
       </section>

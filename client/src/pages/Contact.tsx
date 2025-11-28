@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
-  Mail, 
+  PhoneCall, 
   Send,
   CheckCircle,
   Sparkles,
@@ -26,9 +26,7 @@ const Contact: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const subject = `Contact Form Submission - ${formData.service || 'General Inquiry'}`;
-      const body = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0APhone: ${formData.phone || 'Not provided'}%0D%0AService: ${formData.service || 'General Inquiry'}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
-      window.location.href = `mailto:info@billiondreamsrunway.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = 'tel:+919030573605';
       setIsSubmitted(true);
       setFormData({
         name: '',
@@ -39,7 +37,7 @@ const Contact: React.FC = () => {
       });
     } catch (error) {
       console.error('Error submitting form:', error);
-      alert('Please contact us directly at info@billiondreamsrunway.in');
+      alert('Please contact us directly at +91-9030573605');
     }
   };
 
@@ -52,10 +50,10 @@ const Contact: React.FC = () => {
 
   const contactInfo = [
     {
-      icon: Mail,
-      title: 'Email Us',
-      details: ['info@billiondreamsrunway.in'],
-      color: 'text-blue-500'
+      icon: PhoneCall,
+      title: 'Call Us',
+      details: ['+91-9030573605'],
+      color: 'text-green-500'
     }
   ];
 
@@ -489,3 +487,5 @@ const Contact: React.FC = () => {
 };
 
 export default Contact;
+
+

@@ -22,14 +22,12 @@ const WorkPermitEligibility = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const subject = 'Work Permit Eligibility Assessment Inquiry';
-      const body = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0APhone: ${formData.phone}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
-      window.location.href = `mailto:info@billiondreamsrunway.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = 'tel:+919030573605';
       setIsSubmitted(true);
       setFormData({ name: '', email: '', phone: '', message: '' });
       setTimeout(() => setIsSubmitted(false), 5000);
     } catch (error) {
-      alert('Please contact us directly at info@billiondreamsrunway.in');
+      alert('Please contact us directly at +91-9030573605');
     } finally {
       setIsSubmitting(false);
     }
@@ -314,4 +312,6 @@ const WorkPermitEligibility = () => {
 };
 
 export default WorkPermitEligibility;
+
+
 

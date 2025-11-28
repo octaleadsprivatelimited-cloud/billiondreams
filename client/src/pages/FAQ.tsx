@@ -353,15 +353,15 @@ const FAQ: React.FC = () => {
               <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
                 <HelpCircle size={32} className="text-primary-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Email Support</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Phone Support</h3>
               <p className="text-gray-600 mb-6">
-                Send us your questions via email and we'll get back to you within 24 hours.
+                Prefer to talk? Call us anytime between 10:00 AM and 7:00 PM IST for immediate assistance.
               </p>
               <a
-                href="mailto:info@billiondreamsrunway.in"
+                href="tel:+919030573605"
                 className="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold"
               >
-                info@billiondreamsrunway.in
+                +91-9030573605
                 <ArrowRight size={16} className="ml-1" />
               </a>
             </motion.div>

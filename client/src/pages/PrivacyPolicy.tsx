@@ -58,7 +58,7 @@ const PrivacyPolicy: React.FC = () => {
             <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page.</p>
 
             <h2>8. Contact Us</h2>
-            <p>If you have any questions about this privacy policy, please contact us at <a href="mailto:info@billiondreamsrunway.in" className="text-blue-600 hover:underline">info@billiondreamsrunway.in</a>.</p>
+            <p>If you have any questions about this privacy policy, please contact us at <a href="tel:+919030573605" className="text-blue-600 hover:underline">+91-9030573605</a>.</p>
           </div>
         </div>
       </section>

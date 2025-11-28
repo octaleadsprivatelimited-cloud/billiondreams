@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle, Mail, ArrowRight, Plane, FileText, ClipboardCheck, ShieldCheck, Target, Briefcase, DollarSign, Users, MapPin } from 'lucide-react';
+import { CheckCircle, PhoneCall, ArrowRight, Plane, FileText, ClipboardCheck, ShieldCheck, Target, Briefcase, DollarSign, Users, MapPin } from 'lucide-react';
 
 const MigrateCanada = () => {
   const [formData, setFormData] = useState({
@@ -26,9 +26,9 @@ const MigrateCanada = () => {
       setIsSubmitted(true);
       setFormData({ name: '', email: '', phone: '', message: '' });
       setTimeout(() => setIsSubmitted(false), 5000);
-      window.location.href = `mailto:info@billiondreamsrunway.in?subject=Canada Migration Inquiry&body=Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0APhone: ${formData.phone}%0D%0AMessage: ${formData.message}`;
+      window.location.href = 'tel:+919030573605';
     } catch (error) {
-      alert('Please contact us directly at info@billiondreamsrunway.in');
+      alert('Please contact us directly at +91-9030573605');
     } finally {
       setIsSubmitting(false);
     }
@@ -443,8 +443,8 @@ const MigrateCanada = () => {
                 <div className="mt-6 pt-6 border-t border-gray-200">
                   <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-gray-600">
                     <div className="flex items-center">
-                      <Mail className="mr-2 text-red-600" size={20} />
-                      <a href="mailto:info@billiondreamsrunway.in" className="hover:text-red-600 transition-colors">info@billiondreamsrunway.in</a>
+                      <PhoneCall className="mr-2 text-red-600" size={20} />
+                      <a href="tel:+919030573605" className="hover:text-red-600 transition-colors">+91-9030573605</a>
                     </div>
                   </div>
                 </div>
@@ -469,4 +469,5 @@ const MigrateCanada = () => {
 };
 
 export default MigrateCanada;
+
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle, Mail, ArrowRight, Plane, FileText, ClipboardCheck, ShieldCheck, Target, Users, Briefcase, MapPin } from 'lucide-react';
+import { CheckCircle, PhoneCall, ArrowRight, Plane, FileText, ClipboardCheck, ShieldCheck, Target, Users, Briefcase, MapPin } from 'lucide-react';
 
 const ServicesImmigration = () => {
   const [formData, setFormData] = useState({
@@ -22,14 +22,12 @@ const ServicesImmigration = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const subject = 'Immigration Services Inquiry';
-      const body = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0APhone: ${formData.phone}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
-      window.location.href = `mailto:info@billiondreamsrunway.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = 'tel:+919030573605';
       setIsSubmitted(true);
       setFormData({ name: '', email: '', phone: '', message: '' });
       setTimeout(() => setIsSubmitted(false), 5000);
     } catch (error) {
-      alert('Please contact us directly at info@billiondreamsrunway.in');
+      alert('Please contact us directly at +91-9030573605');
     } finally {
       setIsSubmitting(false);
     }
@@ -414,8 +412,8 @@ const ServicesImmigration = () => {
                 <div className="mt-6 pt-6 border-t border-gray-200">
                   <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-gray-600">
                     <div className="flex items-center">
-                      <Mail className="mr-2 text-blue-600" size={20} />
-                      <a href="mailto:info@billiondreamsrunway.in" className="hover:text-blue-600 transition-colors">info@billiondreamsrunway.in</a>
+                      <PhoneCall className="mr-2 text-blue-600" size={20} />
+                      <a href="tel:+919030573605" className="hover:text-blue-600 transition-colors">+91-9030573605</a>
                     </div>
                   </div>
                 </div>
@@ -440,4 +438,6 @@ const ServicesImmigration = () => {
 };
 
 export default ServicesImmigration;
+
+
 

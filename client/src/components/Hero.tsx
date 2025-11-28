@@ -95,9 +95,7 @@ const Hero: React.FC = () => {
     setSubmitStatus('idle');
 
     try {
-      const subject = `Hero Form Submission - ${formData.service || 'General Inquiry'}`;
-      const body = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0APhone: ${formData.phone}%0D%0AService: ${formData.service || 'General Inquiry'}`;
-      window.location.href = `mailto:info@billiondreamsrunway.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = 'tel:+919030573605';
       setSubmitStatus('success');
       setFormData({ name: '', email: '', phone: '', service: '' });
       setTimeout(() => setSubmitStatus('idle'), 5000);
@@ -371,3 +369,4 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
+
