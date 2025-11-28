@@ -122,25 +122,19 @@ const Header: React.FC = () => {
     <>
       {/* Main Header - Compact */}
       <motion.header 
-        className={`sticky top-0 z-50 transition-all duration-300 relative ${
-          isScrolled 
-            ? 'backdrop-blur-sm shadow-xl border-b-2 border-gray-400' 
-            : 'shadow-md border-b-2 border-gray-400'
+        className={`sticky top-0 z-50 transition-all duration-300 bg-white border-b border-gray-200 ${
+          isScrolled ? 'shadow-lg' : 'shadow-sm'
         }`}
-        style={{ 
-          background: 'linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 50%, #c0c0c0 100%)',
-          boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 2px 4px rgba(0, 0, 0, 0.1)'
-        }}
       >
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
           <div className="flex justify-between items-center h-12 md:h-14 lg:h-16">
             {/* Logo */}
-            <Link to="/" className="flex items-center group">
-              <div className="relative h-12 md:h-14 lg:h-16 flex items-center">
+            <Link to="/" className="flex items-center gap-2 group">
+              <div className="relative h-10 md:h-12 flex items-center">
                 <img 
                   src="/logo.png" 
                   alt="Billion Dreams Runway Logo" 
-                  className="h-full w-auto object-contain max-w-[120px] md:max-w-[150px]"
+                  className="h-full w-auto object-contain max-w-[95px] md:max-w-[120px]"
                   style={{ display: logoLoaded ? 'block' : 'none' }}
                   onLoad={() => setLogoLoaded(true)}
                   onError={() => setLogoLoaded(false)}
@@ -151,6 +145,11 @@ const Header: React.FC = () => {
                   </span>
                 )}
               </div>
+              {logoLoaded && (
+                <span className="hidden sm:inline text-gray-900 text-sm md:text-base lg:text-lg font-semibold tracking-tight">
+                  Billion Dreams Runway
+                </span>
+              )}
             </Link>
 
             {/* Desktop Navigation */}
