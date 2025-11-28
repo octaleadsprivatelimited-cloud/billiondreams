@@ -146,7 +146,9 @@ const Header: React.FC = () => {
                   onError={() => setLogoLoaded(false)}
                 />
                 {!logoLoaded && (
-                  <span className="text-black text-base md:text-lg lg:text-xl font-bold whitespace-nowrap">Billion Dreams Runway</span>
+                  <span className="hidden sm:inline text-black text-base md:text-lg lg:text-xl font-bold whitespace-nowrap">
+                    Billion Dreams Runway
+                  </span>
                 )}
               </div>
             </Link>
