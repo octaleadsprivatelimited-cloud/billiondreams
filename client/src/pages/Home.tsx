@@ -28,7 +28,7 @@ const Home: React.FC = () => {
       link: '/work-permit-eligibility', 
       gradient: 'from-blue-500 to-cyan-500', 
       size: 'large',
-      image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1200&h=800&fit=crop&q=80'
+      image: '/services/immigration.jpg'
     },
     { 
       title: 'Document Preparation', 
@@ -36,7 +36,7 @@ const Home: React.FC = () => {
       link: '/work-permit-documents', 
       gradient: 'from-emerald-500 to-teal-500', 
       size: 'small',
-      image: 'https://images.unsplash.com/photo-1562774053-701939374585?w=800&h=600&fit=crop&q=80'
+      image: '/services/study_visa.jpg'
     },
     { 
       title: 'Application Strategy', 
@@ -44,7 +44,7 @@ const Home: React.FC = () => {
       link: '/work-permit-strategy', 
       gradient: 'from-pink-500 to-rose-500', 
       size: 'medium',
-      image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=600&fit=crop&q=80'
+      image: '/services/businessvisa.jpg'
     },
     { 
       title: 'Application Submission', 
@@ -52,7 +52,7 @@ const Home: React.FC = () => {
       link: '/work-permit-submission', 
       gradient: 'from-purple-500 to-indigo-500', 
       size: 'medium',
-      image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=600&fit=crop&q=80'
+      image: '/services/word_visa.jpg'
     },
     { 
       title: 'Employer Services', 
@@ -60,7 +60,7 @@ const Home: React.FC = () => {
       link: '/work-permit-employer', 
       gradient: 'from-orange-500 to-red-500', 
       size: 'small',
-      image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop&q=80'
+      image: '/services/businessvisa.jpg'
     },
     { 
       title: 'Follow-Up & Status Tracking', 
@@ -68,7 +68,7 @@ const Home: React.FC = () => {
       link: '/work-permit-tracking', 
       gradient: 'from-amber-500 to-yellow-500', 
       size: 'small',
-      image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&h=600&fit=crop&q=80'
+      image: '/services/immigration.jpg'
     },
     { 
       title: 'Post-Approval Support', 
@@ -76,7 +76,7 @@ const Home: React.FC = () => {
       link: '/work-permit-post-approval', 
       gradient: 'from-green-500 to-emerald-500', 
       size: 'small',
-      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&q=80'
+      image: '/services/study_visa.jpg'
     },
     { 
       title: 'Compliance & Renewal Assistance', 
@@ -84,7 +84,7 @@ const Home: React.FC = () => {
       link: '/work-permit-renewal', 
       gradient: 'from-indigo-500 to-purple-500', 
       size: 'small',
-      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop&q=80'
+      image: '/services/word_visa.jpg'
     },
     { 
       title: 'Additional Services', 
@@ -92,7 +92,7 @@ const Home: React.FC = () => {
       link: '/work-permit-additional', 
       gradient: 'from-cyan-500 to-blue-500', 
       size: 'small',
-      image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=600&fit=crop&q=80'
+      image: '/services/family_visa.jpg'
     }
   ];
 
@@ -217,7 +217,7 @@ const Home: React.FC = () => {
                       loading="lazy"
                       decoding="async"
                       onError={(e) => {
-                        e.currentTarget.src = 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&h=800&fit=crop&q=80';
+                        e.currentTarget.src = '/services/immigration.jpg';
                       }}
                     />
                     {/* Dark Overlay for Text Readability */}
@@ -417,11 +417,14 @@ const Home: React.FC = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="https://t4.ftcdn.net/jpg/04/89/68/23/360_F_489682374_ckc0OVyT6Av0NGcuYbwBSCxy62blF4CQ.jpg"
+            src="/home/slider-1.jpg"
             alt="Background"
             className="w-full h-full object-cover"
             loading="lazy"
             decoding="async"
+            onError={(e) => {
+              e.currentTarget.src = '/home/slider-3.jpg';
+            }}
           />
           {/* LinkedIn Blue Overlay with Fade */}
           <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-blue-800/60 to-blue-900/70"></div>
