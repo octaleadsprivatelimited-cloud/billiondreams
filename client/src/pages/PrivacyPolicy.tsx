@@ -9,7 +9,7 @@ const PrivacyPolicy: React.FC = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/hero-background.avif')`
+            backgroundImage: `url('https://s15489.pcdn.co/wp-content/uploads/2016/12/What-is-an-Immigrant-Visa.jpg')`
           }}
         ></div>
         <div className="absolute inset-0 bg-black/50"></div>
