@@ -28,7 +28,7 @@ const Home: React.FC = () => {
       link: '/work-permit-eligibility', 
       gradient: 'from-blue-500 to-cyan-500', 
       size: 'large',
-      image: '/services/immigration.jpg'
+      image: '/services/eligibility-assessment.jpg'
     },
     { 
       title: 'Document Preparation', 
@@ -36,7 +36,7 @@ const Home: React.FC = () => {
       link: '/work-permit-documents', 
       gradient: 'from-emerald-500 to-teal-500', 
       size: 'small',
-      image: '/services/study_visa.jpg'
+      image: '/services/document-preparation.avif'
     },
     { 
       title: 'Application Strategy', 
@@ -44,7 +44,7 @@ const Home: React.FC = () => {
       link: '/work-permit-strategy', 
       gradient: 'from-pink-500 to-rose-500', 
       size: 'medium',
-      image: '/services/businessvisa.jpg'
+      image: '/services/application-strategy.avif'
     },
     { 
       title: 'Application Submission', 
@@ -52,7 +52,7 @@ const Home: React.FC = () => {
       link: '/work-permit-submission', 
       gradient: 'from-purple-500 to-indigo-500', 
       size: 'medium',
-      image: '/services/word_visa.jpg'
+      image: '/services/application-submission.webp'
     },
     { 
       title: 'Employer Services', 
@@ -60,7 +60,7 @@ const Home: React.FC = () => {
       link: '/work-permit-employer', 
       gradient: 'from-orange-500 to-red-500', 
       size: 'small',
-      image: '/services/businessvisa.jpg'
+      image: '/services/employer-services.webp'
     },
     { 
       title: 'Follow-Up & Status Tracking', 
@@ -68,7 +68,7 @@ const Home: React.FC = () => {
       link: '/work-permit-tracking', 
       gradient: 'from-amber-500 to-yellow-500', 
       size: 'small',
-      image: '/services/immigration.jpg'
+      image: '/services/follow-up-tracking.jpg'
     },
     { 
       title: 'Post-Approval Support', 
@@ -76,7 +76,7 @@ const Home: React.FC = () => {
       link: '/work-permit-post-approval', 
       gradient: 'from-green-500 to-emerald-500', 
       size: 'small',
-      image: '/services/study_visa.jpg'
+      image: '/services/post-approval-support.webp'
     },
     { 
       title: 'Compliance & Renewal Assistance', 
@@ -84,7 +84,7 @@ const Home: React.FC = () => {
       link: '/work-permit-renewal', 
       gradient: 'from-indigo-500 to-purple-500', 
       size: 'small',
-      image: '/services/word_visa.jpg'
+      image: '/services/compliance-renewal.jpg'
     },
     { 
       title: 'Additional Services', 
@@ -92,7 +92,7 @@ const Home: React.FC = () => {
       link: '/work-permit-additional', 
       gradient: 'from-cyan-500 to-blue-500', 
       size: 'small',
-      image: '/services/family_visa.jpg'
+      image: '/services/additional-services.jpg'
     }
   ];
 

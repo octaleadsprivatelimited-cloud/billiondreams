@@ -33,11 +33,11 @@ const WorkPermitSubmission = () => {
       <section className="relative h-[520px] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/hero-background.avif"
-            alt="Background"
+            src="/services/application-submission.webp"
+            alt="Application Submission"
             className="w-full h-full object-cover"
             onError={(e) => {
-              e.currentTarget.src = '/home/slider-1.jpg';
+              e.currentTarget.src = '/hero-background.avif';
             }}
           />
         </div>
