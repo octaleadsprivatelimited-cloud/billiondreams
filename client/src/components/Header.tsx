@@ -311,40 +311,35 @@ const Header: React.FC = () => {
                     className="relative group"
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                    <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-sm rounded-2xl p-4 border border-blue-500/30 hover:border-blue-400 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20">
-                      <div className="flex items-center gap-2 mb-3">
-                        <div className="p-1.5 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg">
-                          <Globe className="text-white" size={16} />
+                    <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-sm rounded-2xl p-3 border border-blue-500/30 hover:border-blue-400 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20">
+                      <div className="flex items-center gap-2 mb-2">
+                        <div className="p-1 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-md">
+                          <Globe className="text-white" size={14} />
                         </div>
-                        <h4 className="text-base font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                        <h4 className="text-sm font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
                           Europe
                         </h4>
                       </div>
-                      <div className="grid grid-cols-1 gap-1.5">
+                      <div className="grid grid-cols-3 gap-1">
                         {menuCategories.study.filter(item => ['UK', 'Germany', 'France', 'Italy', 'Ireland', 'Sweden', 'Finland', 'Spain', 'Switzerland'].includes(item.name)).map((item, index) => (
                           <motion.div
                             key={item.name}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.3, delay: 0.25 + index * 0.05 }}
-                            whileHover={{ scale: 1.02, x: 4 }}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.2, delay: 0.25 + index * 0.03 }}
+                            whileHover={{ scale: 1.05 }}
                           >
                             <Link
                               to={item.path}
                               onClick={() => setActiveDropdown(null)}
-                              className="group/item flex items-center justify-between p-2 rounded-md bg-gradient-to-r from-gray-800/50 to-gray-800/30 hover:from-blue-500/20 hover:to-cyan-500/20 border border-gray-700/50 hover:border-blue-400/50 transition-all duration-300 hover:shadow-lg"
+                              className="group/item flex flex-col items-center justify-center p-1.5 rounded-md bg-gradient-to-br from-gray-800/50 to-gray-800/30 hover:from-blue-500/20 hover:to-cyan-500/20 border border-gray-700/50 hover:border-blue-400/50 transition-all duration-300 hover:shadow-lg min-h-[50px]"
                             >
-                              <div className="flex items-center gap-2 flex-1 min-w-0">
-                                <div className="w-6 h-6 rounded-md bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center group-hover/item:scale-110 transition-transform duration-300 flex-shrink-0">
-                                  <GraduationCap className="text-blue-400" size={12} />
-                                </div>
-                                <div className="flex-1 min-w-0">
-                                  <span className="text-xs font-semibold text-white group-hover/item:text-blue-300 transition-colors block truncate">
-                                    {item.name}
-                                  </span>
-                                </div>
+                              <div className="w-5 h-5 rounded-md bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center group-hover/item:scale-110 transition-transform duration-300 mb-1">
+                                <GraduationCap className="text-blue-400" size={10} />
                               </div>
-                              <ArrowRight size={10} className="text-blue-400 opacity-0 group-hover/item:opacity-100 transform translate-x-[-4px] group-hover/item:translate-x-0 transition-all duration-300 flex-shrink-0 ml-1.5" />
+                              <span className="text-[10px] font-semibold text-white group-hover/item:text-blue-300 transition-colors text-center leading-tight">
+                                {item.name}
+                              </span>
                             </Link>
                           </motion.div>
                         ))}
