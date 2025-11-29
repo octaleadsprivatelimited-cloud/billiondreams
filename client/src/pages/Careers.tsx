@@ -284,7 +284,7 @@ const Careers: React.FC = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'url(https://media.istockphoto.com/id/949182974/photo/male-manager-shaking-hands-with-female-applicant.jpg?s=612x612&w=0&k=20&c=QCjfJPKUckGpX9FdZU-8bw2szQuxa2_CPATyCBAazWM=)'
+            backgroundImage: 'url(/hero-background.avif)'
           }}
         >
           {/* Blue overlay for brand consistency */}
