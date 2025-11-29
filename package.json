@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Professional website for GREAT Visa Network - Visa consultancy and recruitment agency",
   "engines": {
-    "node": "20.x"
+    "node": "24.x"
   },
   "scripts": {
     "build": "cd client && npm install && npm run build"
