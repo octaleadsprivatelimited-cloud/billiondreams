@@ -311,41 +311,40 @@ const Header: React.FC = () => {
                     className="relative group"
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                    <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-sm rounded-2xl p-6 border border-blue-500/30 hover:border-blue-400 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="p-2 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg">
-                          <Globe className="text-white" size={20} />
+                    <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-sm rounded-2xl p-4 border border-blue-500/30 hover:border-blue-400 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20">
+                      <div className="flex items-center gap-2 mb-3">
+                        <div className="p-1.5 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg">
+                          <Globe className="text-white" size={16} />
                         </div>
-                        <h4 className="text-lg font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                        <h4 className="text-base font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
                           Europe
                         </h4>
                       </div>
-                      <div className="space-y-3 max-h-[500px] overflow-y-auto pr-2 dropdown-scroll">
+                      <div className="grid grid-cols-1 gap-1.5">
                         {menuCategories.study.filter(item => ['UK', 'Germany', 'France', 'Italy', 'Ireland', 'Sweden', 'Finland', 'Spain', 'Switzerland'].includes(item.name)).map((item, index) => (
                           <motion.div
                             key={item.name}
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.3, delay: 0.25 + index * 0.05 }}
-                            whileHover={{ scale: 1.05, x: 6 }}
+                            whileHover={{ scale: 1.02, x: 4 }}
                           >
                             <Link
                               to={item.path}
                               onClick={() => setActiveDropdown(null)}
-                              className="group/item flex items-center justify-between p-4 rounded-xl bg-gradient-to-r from-gray-800/50 to-gray-800/30 hover:from-blue-500/20 hover:to-cyan-500/20 border border-gray-700/50 hover:border-blue-400/50 transition-all duration-300 hover:shadow-lg"
+                              className="group/item flex items-center justify-between p-2 rounded-md bg-gradient-to-r from-gray-800/50 to-gray-800/30 hover:from-blue-500/20 hover:to-cyan-500/20 border border-gray-700/50 hover:border-blue-400/50 transition-all duration-300 hover:shadow-lg"
                             >
-                              <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center group-hover/item:scale-110 transition-transform duration-300">
-                                  <GraduationCap className="text-blue-400" size={18} />
+                              <div className="flex items-center gap-2 flex-1 min-w-0">
+                                <div className="w-6 h-6 rounded-md bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center group-hover/item:scale-110 transition-transform duration-300 flex-shrink-0">
+                                  <GraduationCap className="text-blue-400" size={12} />
                                 </div>
-                                <div>
-                                  <span className="text-base font-semibold text-white group-hover/item:text-blue-300 transition-colors block">
+                                <div className="flex-1 min-w-0">
+                                  <span className="text-xs font-semibold text-white group-hover/item:text-blue-300 transition-colors block truncate">
                                     {item.name}
                                   </span>
-                                  <span className="text-xs text-gray-400 group-hover/item:text-gray-300">Historic Excellence</span>
                                 </div>
                               </div>
-                              <ArrowRight size={16} className="text-blue-400 opacity-0 group-hover/item:opacity-100 transform translate-x-[-8px] group-hover/item:translate-x-0 transition-all duration-300" />
+                              <ArrowRight size={10} className="text-blue-400 opacity-0 group-hover/item:opacity-100 transform translate-x-[-4px] group-hover/item:translate-x-0 transition-all duration-300 flex-shrink-0 ml-1.5" />
                             </Link>
                           </motion.div>
                         ))}
