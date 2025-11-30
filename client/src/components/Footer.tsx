@@ -222,6 +222,25 @@ const Footer: React.FC = () => {
         </div>
         </div>
 
+      {/* Office Locations Section */}
+      <div className="relative z-10 border-t border-gray-200 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
+          <h3 className="text-base md:text-lg font-bold text-gray-900 mb-4 text-center md:text-left">Our Office Locations</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-200">
+              <h4 className="text-sm md:text-base font-semibold text-gray-900 mb-2">Hyderabad Office</h4>
+              <p className="text-xs md:text-sm text-slate-600 mb-1">Hitex, Cultfit Building, 4th Floor</p>
+              <p className="text-xs md:text-sm text-slate-600">Telangana - 500084</p>
+            </div>
+            <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-200">
+              <h4 className="text-sm md:text-base font-semibold text-gray-900 mb-2">Jaggaiahpet Office</h4>
+              <p className="text-xs md:text-sm text-slate-600 mb-1">Opposite Gayatri Ashramam, Durga Nilayam Building</p>
+              <p className="text-xs md:text-sm text-slate-600">Andhra Pradesh - 521175</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Bottom Bar */}
       <div className="relative z-10 bg-gray-100 border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-6">

@@ -22,22 +22,44 @@ const Contact: React.FC = () => {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError('');
+    
     try {
-      window.location.href = 'tel:+919030573605';
-      setIsSubmitted(true);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        service: '',
-        message: ''
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('phone', formData.phone);
+      formDataToSend.append('service', formData.service);
+      formDataToSend.append('message', formData.message);
+
+      const response = await fetch('https://formspree.io/f/mgvgeyzj', {
+        method: 'POST',
+        body: formDataToSend
       });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          service: '',
+          message: ''
+        });
+      } else {
+        throw new Error('Form submission failed');
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
-      alert('Please contact us directly at +91-9030573605');
+      setSubmitError('Failed to send message. Please try again or contact us directly at +91-9030573605');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -54,6 +76,21 @@ const Contact: React.FC = () => {
       title: 'Call Us',
       details: ['+91-9030573605'],
       color: 'text-green-500'
+    }
+  ];
+
+  const officeLocations = [
+    {
+      city: 'Hyderabad',
+      address: 'Hitex, Cultfit Building, 4th Floor',
+      pincode: '500084',
+      state: 'Telangana'
+    },
+    {
+      city: 'Jaggaiahpet',
+      address: 'Opposite Gayatri Ashramam, Durga Nilayam Building',
+      pincode: '521175',
+      state: 'Andhra Pradesh'
     }
   ];
 
@@ -281,12 +318,28 @@ const Contact: React.FC = () => {
                     />
                   </div>
 
+                  {submitError && (
+                    <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                      {submitError}
+                    </div>
+                  )}
+                  
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-4 px-6 rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center"
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed text-white py-4 px-6 rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center"
                   >
-                    <Send className="w-5 h-5 mr-2" />
-                    Send Message
+                    {isSubmitting ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5 mr-2" />
+                        Send Message
+                      </>
+                    )}
                   </button>
                 </form>
               )}
@@ -326,6 +379,30 @@ const Contact: React.FC = () => {
                     </div>
                   </motion.div>
                 ))}
+
+                {/* Office Locations */}
+                <div className="space-y-4">
+                  <h4 className="text-lg font-semibold text-white mb-4">Our Office Locations</h4>
+                  {officeLocations.map((location, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: (contactInfo.length + index) * 0.1 }}
+                      viewport={{ once: true }}
+                      className="flex items-start space-x-4 p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover:bg-white/20 transition-all duration-300"
+                    >
+                      <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <MapPin className="w-6 h-6 text-blue-400" />
+                      </div>
+                      <div>
+                        <h5 className="text-lg font-semibold text-white mb-1">{location.city}</h5>
+                        <p className="text-white/80 mb-1">{location.address}</p>
+                        <p className="text-white/80">{location.state} - {location.pincode}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
 
             </motion.div>
@@ -348,47 +425,85 @@ const Contact: React.FC = () => {
                 Find Us on Google Maps
               </h2>
               <p className="text-lg text-gray-600">
-                Visit our office or get directions
+                Visit our offices or get directions
               </p>
             </div>
-            <div className="rounded-xl overflow-hidden shadow-2xl border border-gray-200">
-              {/* Google Maps Embed - Update embed URL by visiting https://share.google/R9nhR2vue7afL2ki1 and clicking Share > Embed a map */}
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15226.8818!2d78.486813!3d17.4489!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDI2JzU2LjAiTiA3OMKwMjknMTIuNSJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
-                width="100%"
-                height="450"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="w-full"
-                title="Billion Dreams Runway Location"
-              ></iframe>
-              <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-4 text-center">
-                <a
-                  href="https://share.google/R9nhR2vue7afL2ki1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-white hover:text-yellow-300 transition-colors font-semibold"
-                >
-                  <MapPin className="w-5 h-5 mr-2" />
-                  <span>Open in Google Maps</span>
-                </a>
-              </div>
-            </div>
-            <div className="mt-4 text-center text-sm text-gray-500">
-              <p>
-                To get the embed URL, visit the{' '}
-                <a 
-                  href="https://share.google/R9nhR2vue7afL2ki1" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline"
-                >
-                  Google Maps location
-                </a>
-                {' '}and click "Share" → "Embed a map" to copy the iframe code.
-              </p>
+            
+            {/* Two Maps Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+              {/* Hyderabad Office Map */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+                className="rounded-xl overflow-hidden shadow-2xl border border-gray-200"
+              >
+                <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-3 text-center">
+                  <h3 className="text-white font-semibold text-sm md:text-base">Hyderabad Office</h3>
+                </div>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.5!2d78.486813!3d17.4489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDI2JzU2LjAiTiA3OMKwMjknMTIuNSJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin&q=Hitex+Cultfit+Building+4th+Floor+Hyderabad+500084"
+                  width="100%"
+                  height="400"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full"
+                  title="Billion Dreams Runway - Hyderabad Office"
+                ></iframe>
+                <div className="bg-gray-50 p-4">
+                  <p className="text-xs md:text-sm text-gray-700 mb-2 font-medium">Hitex, Cultfit Building, 4th Floor</p>
+                  <p className="text-xs md:text-sm text-gray-600">Telangana - 500084</p>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Hitex+Cultfit+Building+Hyderabad+500084"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center mt-3 text-blue-600 hover:text-blue-700 transition-colors text-xs md:text-sm font-medium"
+                  >
+                    <MapPin className="w-4 h-4 mr-1" />
+                    <span>Get Directions</span>
+                  </a>
+                </div>
+              </motion.div>
+
+              {/* Jaggaiahpet Office Map */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="rounded-xl overflow-hidden shadow-2xl border border-gray-200"
+              >
+                <div className="bg-gradient-to-r from-indigo-600 to-purple-600 p-3 text-center">
+                  <h3 className="text-white font-semibold text-sm md:text-base">Jaggaiahpet Office</h3>
+                </div>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.5!2d80.1!3d16.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTbCsDU0JzAwLjAiTiA4MMKwMDYnMDAuMCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin&q=Durga+Nilayam+Building+Jaggaiahpet+opposite+Gayatri+Ashramam+Andhra+Pradesh+521175"
+                  width="100%"
+                  height="400"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full"
+                  title="Billion Dreams Runway - Jaggaiahpet Office"
+                ></iframe>
+                <div className="bg-gray-50 p-4">
+                  <p className="text-xs md:text-sm text-gray-700 mb-2 font-medium">Opposite Gayatri Ashramam, Durga Nilayam Building</p>
+                  <p className="text-xs md:text-sm text-gray-600">Andhra Pradesh - 521175</p>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Jaggaiahpet+Gayatri+Ashramam+Durga+Nilayam+Building+521175"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center mt-3 text-blue-600 hover:text-blue-700 transition-colors text-xs md:text-sm font-medium"
+                  >
+                    <MapPin className="w-4 h-4 mr-1" />
+                    <span>Get Directions</span>
+                  </a>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
