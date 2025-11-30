@@ -5,7 +5,8 @@ import {
   ChevronDown,
   Globe,
   Award,
-  Shield
+  Shield,
+  Instagram
 } from 'lucide-react';
 
 const Footer: React.FC = () => {
@@ -105,6 +106,22 @@ const Footer: React.FC = () => {
                     <span className="text-[10px] md:text-xs font-medium text-slate-600">{badge.text}</span>
                   </div>
                 ))}
+              </div>
+
+              {/* Social Media Links */}
+              <div className="flex items-center space-x-3">
+                <a
+                  href="https://www.instagram.com/billion_dreams_runway?igsh=MWg3amIwNm5zd3R2bg=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-110"
+                  aria-label="Follow us on Instagram"
+                >
+                  <Instagram 
+                    size={20} 
+                    className="text-white group-hover:scale-110 transition-transform duration-300" 
+                  />
+                </a>
               </div>
 
             </div>

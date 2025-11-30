@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -65,9 +66,10 @@ import WorkPermitServices from './pages/WorkPermitServices';
 
 function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="min-h-screen bg-white">
+    <HelmetProvider>
+      <Router>
+        <ScrollToTop />
+        <div className="min-h-screen bg-white">
         <Header />
         <main>
           <Routes>
@@ -159,6 +161,7 @@ function App() {
         <WhatsAppButton />
       </div>
     </Router>
+    </HelmetProvider>
   );
 }
 

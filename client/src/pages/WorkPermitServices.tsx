@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import { 
   Search, 
   FileText, 
@@ -100,7 +101,15 @@ const WorkPermitServices = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+    <>
+      <SEO
+        title="Work Permit Services - Expert Work Visa Solutions"
+        description="Comprehensive work permit services from Billion Dreams Runway. Expert guidance for work visa applications, employer services, document preparation, and work permit processing for multiple countries."
+        keywords="work permit services, work visa services, work permit consultancy, work visa application, work permit India, work visa consultancy, employer services, work permit processing"
+        canonical="/work-permit-services"
+        ogImage="/hero-background.avif"
+      />
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       <section className="relative h-[520px] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img
@@ -273,6 +282,7 @@ const WorkPermitServices = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

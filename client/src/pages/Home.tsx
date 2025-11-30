@@ -1,5 +1,6 @@
 import React from 'react';
 import Hero from '../components/Hero';
+import SEO from '../components/SEO';
 import { 
   Users, 
   Award, 
@@ -16,7 +17,6 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const Home: React.FC = () => {
-
   const handleCountryClick = () => {
     // Country click handler
   };
@@ -110,6 +110,14 @@ const Home: React.FC = () => {
   ];
 
   return (
+    <>
+      <SEO
+        title="Study Abroad & Visa Consultancy Services"
+        description="Billion Dreams Runway offers expert study abroad consultancy, visa services, and immigration support. Get guidance for studying in USA, UK, Canada, Australia, and 14+ countries. Expert visa counseling, IELTS/GRE coaching, and work permit services."
+        keywords="study abroad consultancy, visa consultancy India, study in USA, study in UK, study in Canada, study in Australia, student visa services, education consultancy, immigration services, IELTS coaching, GRE coaching, work permit services, study abroad counseling"
+        canonical="/"
+        ogImage="/home/hero-1.avif"
+      />
     <div className="min-h-screen bg-white">
             <Hero />
 
@@ -730,6 +738,7 @@ const Home: React.FC = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

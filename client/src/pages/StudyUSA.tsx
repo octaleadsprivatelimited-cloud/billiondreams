@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Globe, CheckCircle, PhoneCall, ArrowRight, Award, TrendingUp, Plane, FileText, ClipboardCheck, ShieldCheck, Target, GraduationCap, DollarSign } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const StudyUSA = () => {
   const [formData, setFormData] = useState({
@@ -41,7 +42,15 @@ const StudyUSA = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+    <>
+      <SEO
+        title="Study in USA - Student Visa & University Admission"
+        description="Study in USA with Billion Dreams Runway. Expert guidance for USA student visa, university admission, F1 visa processing, and study abroad counseling. Get admission to top US universities with 98% success rate."
+        keywords="study in USA, USA student visa, F1 visa, study abroad USA, USA universities, student visa USA, USA education consultancy, study in America, USA admission, USA visa consultancy, top US universities, USA study visa"
+        canonical="/study-usa"
+        ogImage="/country/usa.jpg"
+      />
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       {/* Hero Section */}
       <section className="relative h-[520px] flex items-center overflow-hidden">
         {/* Country Flag Background */}
@@ -467,6 +476,7 @@ const StudyUSA = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

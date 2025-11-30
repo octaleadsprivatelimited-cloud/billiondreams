@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { BookOpen, CheckCircle, PhoneCall, ArrowRight, Award, Target, FileText, ClipboardCheck, Clock, DollarSign, Users, Mic, PenTool } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const CoachingIELTS = () => {
   const [formData, setFormData] = useState({
@@ -41,7 +42,15 @@ const CoachingIELTS = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+    <>
+      <SEO
+        title="IELTS Coaching - Best IELTS Training & Preparation"
+        description="Get expert IELTS coaching from Billion Dreams Runway. Comprehensive IELTS training, practice tests, speaking preparation, and exam strategies to achieve your target band score."
+        keywords="IELTS coaching, IELTS training, IELTS preparation, IELTS classes, IELTS online coaching, IELTS exam preparation, IELTS speaking, IELTS writing, IELTS listening, IELTS reading, best IELTS coaching"
+        canonical="/coaching-ielts"
+        ogImage="/hero-background.avif"
+      />
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       <section className="relative h-[520px] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img
@@ -466,6 +475,7 @@ const CoachingIELTS = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 
